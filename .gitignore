@@ -8,3 +8,12 @@
 *.synctex.gz
 *.bbl
 *.blg
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.run.xml
+*.pdf
+*.bcf

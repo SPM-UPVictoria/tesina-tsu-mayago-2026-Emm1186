@@ -1,45 +1,47 @@
 \section{Introducción}
 \label{ch:introduccion}
 
-La introducción es la primera sección sustantiva de la tesis y tiene como propósito principal guiar al lector a través del contexto y la relevancia del estudio. En ella, se presenta el problema de investigación, se establecen los objetivos, se justifica la realización del trabajo y se delinean los alcances y limitaciones. Debe ser escrita de forma clara y concisa, capturando el interés del lector y proporcionando una visión general de lo que se abordará en los capítulos subsiguientes.
+En la actualidad, el Poder Judicial del Estado de Tamaulipas (PJETAM) se enfrenta a un volumen creciente de promociones y escritos presentados por las partes involucradas en los diversos juicios. El proceso tradicional para dar respuesta a estas promociones implica la lectura manual de los documentos físicos o digitalizados, la búsqueda del marco normativo correspondiente en los Códigos de Procedimientos (Civiles, Familiares o Mercantiles) y la redacción desde cero del acuerdo judicial. Esta metodología manual no solo consume una cantidad significativa de tiempo para el personal de los juzgados, sino que resulta en un flujo de trabajo repetitivo que es susceptible a cuellos de botella y posibles errores humanos debido a la carga laboral.
+
+Ante esta problemática, el presente proyecto plantea el desarrollo e implementación del "Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa" (SAGAI). Este sistema busca optimizar y modernizar las labores administrativas y jurídicas mediante la integración de dos tecnologías clave: un módulo de Reconocimiento Óptico de Caracteres (OCR) para la extracción automatizada del texto contenido en las promociones digitalizadas, y la implementación de un Modelo de Lenguaje Grande (LLM), específicamente Anthropic Claude. La inteligencia artificial actuará como un asistente virtual capaz de analizar la solicitud extraída y proponer un borrador del acuerdo judicial fundamentado estrictamente en el marco normativo vigente, permitiendo al personal del juzgado centrar sus esfuerzos en la revisión, validación y firma final del documento a través de una interfaz web intuitiva.
 
 \subsection{Antecedentes}
 \label{sec:antecedentes}
 
-En esta sección, se presenta una revisión concisa y pertinente de investigaciones previas, literatura existente y el estado del arte relacionado con el tema de la tesis. El objetivo es situar el trabajo actual dentro del conocimiento acumulado, identificar vacíos en la investigación y demostrar la originalidad y la necesidad del estudio propuesto. Se deben citar adecuadamente las fuentes, mostrando cómo el trabajo se construye sobre cimientos previos o cómo aborda aspectos no resueltos.
+El Poder Judicial del Estado de Tamaulipas (PJETAM) es el órgano encargado de administrar e impartir justicia a nivel estatal. A través de sus diversos juzgados, procesa diariamente miles de promociones y expedientes. En su búsqueda continua por la modernización, el Departamento de Tecnología ha impulsado la digitalización de procesos hacia el "Expediente Electrónico". Sin embargo, la automatización inteligente enfocada en el análisis y redacción de acuerdos judiciales seguía siendo un área de oportunidad inexplorada.
+
+En el ámbito teórico y tecnológico, el procesamiento de documentos legales ha evolucionado gracias a los avances en dos ramas principales de la computación: el Reconocimiento Óptico de Caracteres (OCR) y los Modelos de Lenguaje Grande (LLMs). La implementación de estas herramientas en el sector público, conocida como "LegalTech", requiere evaluar arquitecturas de código abierto y procesamiento local frente a servicios en la nube, considerando la alta sensibilidad, confidencialidad y privacidad de los datos judiciales manejados en los expedientes.
 
 \subsection{Definición del Problema}
 \label{sec:problema}
 
-Aquí se describe de manera clara y precisa el problema que la tesis busca resolver. Es fundamental articular el problema de forma que sea comprensible, relevante y factible de investigar. Esta sección debe responder a preguntas como: ¿Qué situación actual es insatisfactoria o genera una necesidad? ¿Qué aspectos de este problema no han sido abordados adecuadamente por investigaciones anteriores? La definición del problema puede ser formulada como una pregunta de investigación o una declaración clara de la brecha de conocimiento.
+Actualmente, el personal de los juzgados invierte una cantidad considerable de tiempo en la lectura, transcripción manual y análisis de promociones físicas o escaneadas. Al no contar con un sistema interconectado que vincule automáticamente el contenido de la promoción con los Códigos de Procedimientos aplicables, los servidores públicos dedican horas a labores de mecanografía y búsqueda de fundamentos legales. Este flujo de trabajo genera un cuello de botella que ralentiza la impartición de justicia, aumenta el rezago de expedientes y expone el proceso a errores humanos por fatiga, evidenciando la falta de una herramienta tecnológica que asista en la etapa preliminar de redacción.
 
 \subsection{Objetivos}
 \label{sec:objetivos}
 
-Los objetivos son las metas que se esperan alcanzar con la realización de la investigación. Deben ser claros, medibles, alcanzables, relevantes y con un tiempo definido (SMART, por sus siglas en inglés). Se dividen en un objetivo general y varios objetivos específicos.
-
 \subsubsection{Objetivo General}
 \label{subsec:objetivo_general}
 
-El objetivo general expresa el propósito fundamental del estudio en términos amplios. Es la meta principal que se busca lograr y generalmente abarca la totalidad de la investigación. Debe ser coherente con la definición del problema.
-\begin{itemize}
-    \item \textbf{Ejemplo:} Desarrollar un sistema automatizado para la detección temprana de fallas en turbinas eólicas utilizando técnicas de aprendizaje automático.
-\end{itemize}
+Desarrollar una solución basada en inteligencia artificial generativa que asista a los juzgados del Poder Judicial del Estado de Tamaulipas en la elaboración de acuerdos judiciales, mediante la extracción y análisis del texto de promociones o escritos presentados por las partes, y la generación automatizada del contenido del acuerdo correspondiente, tomando como base la normatividad aplicable (incluyendo códigos de procedimientos civiles y penales) así como acuerdos de referencia según el tipo de promoción.
 
 \subsubsection{Objetivos Específicos}
 \label{subsec:objetivos_especificos}
 
-Los objetivos específicos detallan los pasos o las acciones concretas que se llevarán a cabo para alcanzar el objetivo general. Son tareas más pequeñas y desglosadas que, al ser cumplidas, permiten la consecución del objetivo principal.
 \begin{itemize}
-    \item \textbf{Ejemplo 1:} Recopilar y preprocesar un conjunto de datos de vibraciones y parámetros operativos de turbinas eólicas.
-    \item \textbf{Ejemplo 2:} Implementar y evaluar diferentes algoritmos de aprendizaje automático para la clasificación de estados operativos (normal, pre-falla, falla).
-    \item \textbf{Ejemplo 3:} Diseñar una interfaz de usuario para la visualización de alertas y el monitoreo en tiempo real del estado de las turbinas.
+    \item Analizar los flujos de trabajo actuales en los juzgados para la recepción de promociones y elaboración de acuerdos, identificando los tipos de promociones más frecuentes y los patrones en la redacción de sus acuerdos correspondientes.
+    \item Implementar un módulo de extracción de texto a partir de documentos digitalizados de promociones, mediante técnicas de reconocimiento óptico de caracteres (OCR), garantizando la precisión del texto obtenido como insumo para el procesamiento posterior.
+    \item Construir una base de conocimiento jurídico que integre los códigos de procedimientos civiles y penales aplicables, así como acuerdos de referencia clasificados por tipo de promoción, para ser utilizada como contexto por el modelo de inteligencia artificial.
+    \item Diseñar e implementar el módulo de generación de contenido mediante un modelo de inteligencia artificial generativa, capaz de analizar el texto de la promoción y producir una propuesta del acuerdo judicial correspondiente, conforme al marco normativo aplicable.
+    \item Desarrollar una interfaz web que permita a los usuarios de los juzgados cargar la promoción digitalizada, revisar el texto extraído, visualizar el acuerdo generado y realizar ajustes antes de su validación.
+    \item Evaluar la calidad y pertinencia jurídica de los acuerdos generados mediante pruebas con personal del área judicial, incorporando sus observaciones para ajustar y mejorar el comportamiento del modelo.
+    \item Documentar la arquitectura técnica de la solución, los criterios de configuración del modelo de IA y los manuales de operación para su uso y mantenimiento por parte del equipo de TI del PJETAM.
 \end{itemize}
 
 \subsection{Justificación}
 \label{sec:justificacion}
 
-La justificación explica por qué es importante y relevante llevar a cabo la investigación. Se deben argumentar los beneficios y la utilidad del estudio desde diferentes perspectivas: teórica, práctica, social, económica, tecnológica, etc. Responde a la pregunta: ¿Por qué vale la pena invertir tiempo y recursos en esta investigación? Aquí se resaltan los aportes que la tesis generará al campo del conocimiento o a la solución de problemas específicos.
+La implementación del sistema SAGAI se justifica por la necesidad apremiante de modernizar y optimizar el eslabón más crítico del proceso judicial: la redacción y fundamentación de acuerdos. Al delegar la extracción de texto y la integración del marco normativo a la inteligencia artificial, se reduce drásticamente el tiempo operativo por expediente. Desde una perspectiva tecnológica, la creación de una base de conocimiento jurídico propia dota al juzgado de una herramienta escalable que estandariza los criterios de redacción. Asimismo, el uso de tecnologías de código abierto y modelos LLM asegura que el PJETAM se posicione a la vanguardia en la implementación de "LegalTech" a nivel nacional, mejorando la eficiencia en la atención ciudadana sin comprometer la seguridad de la información institucional.
 
 \subsection{Alcances y Limitaciones}
 \label{sec:alcances_limitaciones}
@@ -47,49 +49,63 @@ La justificación explica por qué es importante y relevante llevar a cabo la in
 \subsubsection{Alcances}
 \label{subsec:alcances}
 
-Los alcances definen claramente hasta dónde llegará el estudio, qué aspectos cubrirá y cuáles serán sus fronteras. Establecen qué elementos, variables, poblaciones o contextos serán incluidos en la investigación. Es esencial para evitar expectativas irrealistas y para mantener el enfoque del trabajo.
+Los alcances del presente proyecto contemplan los siguientes aspectos:
+\begin{itemize}
+    \item El sistema procesará documentos digitalizados (imágenes y PDFs), extrayendo el texto en español mediante el motor local Tesseract OCR.
+    \item Se construirá una base de conocimiento jurídico enfocada inicialmente en las materias Civil, Familiar y Mercantil, indexando leyes y acuerdos de referencia.
+    \item La plataforma contará con una interfaz web funcional que permitirá a los usuarios la visualización, validación y edición manual de los borradores sugeridos por la Inteligencia Artificial.
+\end{itemize}
 
 \subsubsection{Limitaciones}
 \label{subsec:limitaciones}
 
-Las limitaciones son los factores externos o internos que podrían restringir la validez, generalización o profundidad de los resultados de la investigación. Es importante identificarlas honestamente, ya que demuestran un pensamiento crítico por parte del investigador. Pueden incluir restricciones de tiempo, recursos, acceso a datos, metodológicas, etc.
+Las limitaciones identificadas para el desarrollo y operación del sistema son:
+\begin{itemize}
+    \item La precisión de la extracción de texto (OCR) dependerá directamente de la legibilidad, iluminación, nitidez y calidad de escaneo del documento original.
+    \item Los borradores generados por la IA son estrictamente propuestas de asistencia técnica; carecen de validez legal autónoma y requieren obligatoriamente la revisión, validación jurídica y firma del titular del juzgado.
+    \item En su fase inicial, la base de datos normativa se limitará a los códigos y procedimientos específicos definidos por el PJETAM, no abarcando jurisprudencias o normatividad federal externa no alimentada previamente al sistema.
+\end{itemize}
 
 \subsection{Ejemplos de Tablas e Inclusión de Imágenes}
 \label{sec:ejemplos_elementos}
 
-Para ilustrar el uso de elementos visuales en su tesis, a continuación se presentan ejemplos básicos de cómo incluir tablas e imágenes en LaTeX.
+Para ilustrar el uso de elementos visuales en su tesis, a continuación se presentan ejemplos de cómo incluir tablas e imágenes en LaTeX, adaptados a la información del proyecto.
 
 \subsubsection{Inclusión de Tablas}
 
 Las tablas son herramientas fundamentales para presentar datos de manera organizada y comprensible.
+
 \begin{table}[H]
     \centering
-    \caption{Clasificación de Sensores Comunes en Ingeniería.}
-    \label{tab:sensores_comunes}
-    \begin{tabular}{|l|c|c|}
+    \caption{Comparativa de Tecnologías OCR y Modelos Evaluados para SAGAI.}
+    \label{tab:tecnologias_sagai}
+    \begin{tabular}{|l|c|p{6cm}|}
         \hline
-        \textbf{Tipo de Sensor} & \textbf{Magnitud Medida} & \textbf{Principio de Funcionamiento} \\
+        \textbf{Categoría} & \textbf{Tecnología / Herramienta} & \textbf{Justificación en el Proyecto} \\
         \hline
-        Termopar & Temperatura & Efecto Seebeck \\
-        Extensómetro & Deformación & Resistencia eléctrica \\
-        Acelerómetro & Aceleración & Efecto piezoeléctrico \\
-        Encoder rotatorio & Posición angular & Óptico/Magnético \\
+        Motor OCR & Tesseract OCR & Código abierto, procesamiento local seguro sin enviar datos externos. \\
+        Backend API & FastAPI (Python) & Alto rendimiento asíncrono para el procesamiento de imágenes. \\
+        Modelo IA & Claude 3.5 Sonnet & Alta capacidad de razonamiento jurídico y estructuración legal. \\
+        Almacenamiento & Base de Datos Relacional & Indexación y consulta de Códigos Civiles y Familiares. \\
         \hline
     \end{tabular}
-    \caption*{Nota: Esta tabla es un ejemplo para demostrar la estructura básica de una tabla en LaTeX.}
+    \caption*{Nota: Selección preliminar de tecnologías para la arquitectura del sistema.}
 \end{table}
-Como se puede observar en la Tabla \ref{tab:sensores_comunes}, la información se presenta de forma clara y estructurada. Es importante añadir un \verb|`\caption`|  para describir la tabla y un  \verb|`\label`|  para referenciarla en el texto.
+
+Como se puede observar en la Tabla \ref{tab:tecnologias_sagai}, la información técnica se presenta de forma clara y estructurada. Es importante añadir un \verb|`\caption`| para describir la tabla y un \verb|`\label`| para referenciarla en el texto.
 
 \subsubsection{Inclusión de Imágenes}
 
 Las imágenes, gráficos o diagramas son cruciales para complementar la explicación textual y facilitar la comprensión de conceptos complejos o resultados visuales.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img/diagrama_proceso}
     \caption{Diagrama de un proceso de control automático.}
     \label{fig:diagrama_control}
 \end{figure}
-% La Figura \ref{fig:diagrama_control} ilustra un ejemplo de un diagrama de un proceso de control. Para incluir una imagen, se utiliza el entorno `figure` y el comando `\includegraphics`. Es fundamental especificar la ruta de la imagen (en este caso, `images/diagrama_proceso.png`) y un `width` para controlar su tamaño. Al igual que con las tablas, un `\caption` y un `\label` son indispensables. Es crucial que cada imagen tenga una calidad adecuada y que sea relevante para el texto.
+
+% Para incluir una imagen, se utiliza el entorno `figure` y el comando `\includegraphics`. Es fundamental especificar la ruta de la imagen (en este caso, `img/diagrama_proceso`) y un `width` para controlar su tamaño. Al igual que con las tablas, un `\caption` y un `\label` son indispensables. Es crucial que cada imagen tenga una calidad adecuada y que sea relevante para el texto.
 
 \begin{figure}[H]
     \centering
@@ -107,6 +123,5 @@ Las imágenes, gráficos o diagramas son cruciales para complementar la explicac
     \caption{Comparación de datos operativos de un sistema (Temperatura vs. Presión).}
     \label{fig:comparacion_datos}
 \end{figure}
-Incluso es posible combinar varias imágenes en una sola figura, como se muestra en la Figura \ref{fig:comparacion_datos}, utilizando el paquete `subcaption`.
 
-Asegúrense de que todas las figuras y tablas estén debidamente referenciadas en el texto y que su contenido sea autoexplicativo, utilizando los pies de figura y títulos de tabla de manera efectiva.
+Incluso es posible combinar varias imágenes en una sola figura, como se muestra en la Figura \ref{fig:comparacion_datos}, utilizando el paquete `subcaption`. Asegúrense de que todas las figuras y tablas estén debidamente referenciadas en el texto y que su contenido sea autoexplicativo, utilizando los pies de figura y títulos de tabla de manera efectiva.
