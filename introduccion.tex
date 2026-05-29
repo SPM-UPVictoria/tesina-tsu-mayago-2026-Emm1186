@@ -64,7 +64,7 @@ Actualmente, el personal de los juzgados invierte una cantidad considerable de t
 \label{sec:objetivos}
 
 \subsubsection{Objetivo General}
-\label{subsec:objetivo_general}
+\label{subsec:objective_general}
 
 Desarrollar una solución basada en inteligencia artificial generativa que asista a los juzgados del Poder Judicial del Estado de Tamaulipas en la elaboración de acuerdos judiciales, mediante la extracción y análisis del texto de promociones o escritos presentados por las partes, y la generación automatizada del contenido del acuerdo correspondiente, tomando como base la normatividad aplicable (incluyendo códigos de procedimientos civiles y penales) así como acuerdos de referencia según el tipo de promoción.
 
@@ -96,7 +96,7 @@ Los alcances del presente proyecto contemplan los siguientes aspectos:
 \begin{itemize}
     \item El sistema procesará documentos digitalizados (imágenes y PDFs), extrayendo el texto en español mediante el motor local Tesseract OCR.
     \item Se construirá una base de conocimiento jurídico enfocada inicialmente en las materias Civil, Familiar y Mercantil, indexando leyes y acuerdos de referencia.
-    \item La plataforma contará con una interfaz web funcional que permitirá a los usuarios la visualización, validación y edición manual de los borradores sugeridos por la Inteligencia Artificial.
+    \item La plataforma contará con una interfaz web functional que permitirá a los usuarios la visualización, validación y edición manual de los borradores sugeridos por la Inteligencia Artificial.
 \end{itemize}
 
 \subsubsection{Limitaciones}
@@ -107,6 +107,18 @@ Las limitaciones identificadas para el desarrollo y operación del sistema son:
     \item La precisión de la extracción de texto (OCR) dependerá directamente de la legibilidad, iluminación, nitidez y calidad de escaneo del documento original.
     \item Los borradores generados por la IA son estrictamente propuestas de asistencia técnica; carecen de validez legal autónoma y requieren obligatoriamente la revisión, validación jurídica y firma del titular del juzgado.
     \item En su fase inicial, la base de datos normativa se limitará a los códigos y procedimientos específicos definidos por el PJETAM, no abarcando jurisprudencias o normatividad federal externa no alimentada previamente al sistema.
+\end{itemize}
+
+\subsection{Temas Tentativos para el Marco Teórico}
+\label{sec:temas_tentativos}
+
+Para dar sustento a la investigación y desarrollo del sistema SAGAI, el marco teórico de este proyecto abordará los siguientes ejes temáticos:
+
+\begin{itemize}
+    \item \textbf{LegalTech y la Transformación Digital Judicial:} Evolución de los sistemas de información en el sector público y el concepto de Expediente Electrónico.
+    \item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Fundamentos teóricos del procesamiento digital de imágenes, extracción de texto y la arquitectura del motor de código abierto Tesseract OCR.
+    \item \textbf{Inteligencia Artificial Generativa y LLMs:} Conceptos básicos de los Modelos de Lenguaje Grande, su capacidad de razonamiento lógico-semántico y procesamiento de lenguaje natural (NLP).
+    \item \textbf{Arquitectura Web Cliente-Servidor:} Separación de responsabilidades entre el Frontend (interfaces de usuario interactivas) y el Backend (desarrollo de APIs RESTful utilizando FastAPI).
 \end{itemize}
 
 \subsection{Ejemplos de Tablas e Inclusión de Imágenes}
@@ -125,7 +137,7 @@ Las imágenes, gráficos o diagramas son cruciales para complementar la explicac
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img/diagrama_proceso}
-    \caption{Diagrama de un proceso de control automático.}
+    \caption{Diagrama de un process de control automático.}
     \label{fig:diagrama_control}
 \end{figure}
 
