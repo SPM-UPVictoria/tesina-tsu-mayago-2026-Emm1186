@@ -8,9 +8,52 @@ Ante esta problemática, el presente proyecto plantea el desarrollo e implementa
 \subsection{Antecedentes}
 \label{sec:antecedentes}
 
-El Poder Judicial del Estado de Tamaulipas (PJETAM) es el órgano encargado de administrar e impartir justicia a nivel estatal. A través de sus diversos juzgados, procesa diariamente miles de promociones y expedientes. En su búsqueda continua por la modernización, el Departamento de Tecnología ha impulsado la digitalización de procesos hacia el "Expediente Electrónico". Sin embargo, la automatización inteligente enfocada en el análisis y redacción de acuerdos judiciales seguía siendo un área de oportunidad inexplorada.
+\subsubsection{Antecedentes de la Empresa}
+\label{subsec:antecedentes_empresa}
 
-En el ámbito teórico y tecnológico, el procesamiento de documentos legales ha evolucionado gracias a los avances en dos ramas principales de la computación: el Reconocimiento Óptico de Caracteres (OCR) y los Modelos de Lenguaje Grande (LLMs). La implementación de estas herramientas en el sector público, conocida como "LegalTech", requiere evaluar arquitecturas de código abierto y procesamiento local frente a servicios en la nube, considerando la alta sensibilidad, confidencialidad y privacidad de los datos judiciales manejados en los expedientes.
+El Poder Judicial del Estado de Tamaulipas (PJETAM) es el órgano encargado de administrar e impartir justicia a nivel estatal. Para comprender la pertinencia de la implementación tecnológica, es fundamental alinear los objetivos del proyecto con la filosofía institucional de la dependencia:
+
+\textbf{Misión:} Impartir y administrar justicia de manera eficiente y expedita, solucionando conflictos a través de los órganos jurisdiccionales y los medios alternos, contribuyendo a garantizar el estado de derecho y la paz social en Tamaulipas.
+
+\textbf{Visión:} Transcender como Institución de excelencia, mediante la profesionalización e institucionalización de sus integrantes, en un ambiente de humanismo y justicia institucional, haciendo uso de la innovación tecnológica y optimización de los recursos, con responsabilidad social y pleno respeto a la ley, los derechos humanos y la igualdad de género.
+
+Previo al desarrollo del Sistema de Apoyo a la Generación de Acuerdos con IA (SAGAI), el manejo de promociones en los juzgados dependía enteramente de procesos manuales. El personal judicial recibía los documentos (físicos o escaneados en formato de imagen sin reconocimiento de texto), procedía a su lectura íntegra visual, realizaba búsquedas manuales en los Códigos de Procedimientos (Civiles, Familiares o Mercantiles) y redactaba desde cero los acuerdos utilizando procesadores de texto convencionales. Esta metodología tradicional limitaba la capacidad de respuesta operativa, incrementando el rezago de expedientes e impidiendo el aprovechamiento de la "innovación tecnológica" y la "optimización de recursos" declarados en la visión de la institución.
+
+\subsubsection{Antecedentes Teóricos}
+\label{subsec:antecedentes_teoricos}
+
+La solución a la problemática del procesamiento manual de documentos legales se fundamenta en la convergencia de tecnologías emergentes, un campo conocido como \textit{LegalTech}. Para la construcción de SAGAI, se requiere la integración teórica y práctica de dos áreas principales de las ciencias computacionales:
+
+\begin{itemize}
+    \item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Es la tecnología que permite convertir imágenes de texto (fotografías o documentos escaneados) en texto codificado legible por máquina. El uso de motores de código abierto, como Tesseract OCR, resulta vital en el sector público para garantizar el procesamiento local y la estricta privacidad de los datos judiciales.
+    \item \textbf{Modelos de Lenguaje Grande (LLMs):} Son sistemas de Inteligencia Artificial Generativa entrenados con vastos volúmenes de datos para comprender, resumir y estructurar lenguaje humano. En el contexto de este proyecto, actúan como asistentes capaces de interpretar el texto extraído por el OCR, enlazarlo con el marco normativo correspondiente y generar una propuesta jurídica coherente.
+\end{itemize}
+
+\textbf{Tabla Comparativa}
+
+A continuación, se presenta un análisis comparativo entre la metodología de trabajo actual (manual) en los juzgados y la propuesta de valor integrada mediante la implementación del sistema SAGAI.
+
+\begin{table}[H]
+    \centering
+    \caption{Tabla Comparativa: Proceso Tradicional vs. Sistema SAGAI.}
+    \label{tab:comparativa_procesos}
+    \begin{tabular}{|p{3.5cm}|p{5.5cm}|p{5.5cm}|}
+        \hline
+        \textbf{Característica} & \textbf{Proceso Tradicional (Actual)} & \textbf{Sistema SAGAI (Propuesto)} \\
+        \hline
+        \textbf{Lectura de Documentos} & Lectura visual manual de fojas físicas o imágenes digitales. & Extracción automática de texto mediante el motor Tesseract OCR. \\
+        \hline
+        \textbf{Búsqueda Normativa} & Consulta manual en libros físicos o archivos de los Códigos. & Base de datos jurídica integrada para consulta y referenciación automática. \\
+        \hline
+        \textbf{Redacción de Acuerdos} & Mecanografía desde cero en procesadores de texto (ej. MS Word). & Generación de borrador automatizado mediante Inteligencia Artificial. \\
+        \hline
+        \textbf{Manejo de Errores} & Alta susceptibilidad a errores de transcripción o fatiga visual. & Texto original extraído fielmente, requiriendo solo revisión del formato final. \\
+        \hline
+        \textbf{Enfoque del Personal} & Tareas administrativas y mecanográficas altamente repetitivas. & Análisis jurídico, revisión, ajuste y validación final de la propuesta generada. \\
+        \hline
+    \end{tabular}
+    \caption*{Nota: Comparación de los flujos de trabajo en la elaboración de acuerdos judiciales.}
+\end{table}
 
 \subsection{Definición del Problema}
 \label{sec:problema}
@@ -74,25 +117,6 @@ Para ilustrar el uso de elementos visuales en su tesis, a continuación se prese
 \subsubsection{Inclusión de Tablas}
 
 Las tablas son herramientas fundamentales para presentar datos de manera organizada y comprensible.
-
-\begin{table}[H]
-    \centering
-    \caption{Comparativa de Tecnologías OCR y Modelos Evaluados para SAGAI.}
-    \label{tab:tecnologias_sagai}
-    \begin{tabular}{|l|c|p{6cm}|}
-        \hline
-        \textbf{Categoría} & \textbf{Tecnología / Herramienta} & \textbf{Justificación en el Proyecto} \\
-        \hline
-        Motor OCR & Tesseract OCR & Código abierto, procesamiento local seguro sin enviar datos externos. \\
-        Backend API & FastAPI (Python) & Alto rendimiento asíncrono para el procesamiento de imágenes. \\
-        Modelo IA & Claude 3.5 Sonnet & Alta capacidad de razonamiento jurídico y estructuración legal. \\
-        Almacenamiento & Base de Datos Relacional & Indexación y consulta de Códigos Civiles y Familiares. \\
-        \hline
-    \end{tabular}
-    \caption*{Nota: Selección preliminar de tecnologías para la arquitectura del sistema.}
-\end{table}
-
-Como se puede observar en la Tabla \ref{tab:tecnologias_sagai}, la información técnica se presenta de forma clara y estructurada. Es importante añadir un \verb|`\caption`| para describir la tabla y un \verb|`\label`| para referenciarla en el texto.
 
 \subsubsection{Inclusión de Imágenes}
 
