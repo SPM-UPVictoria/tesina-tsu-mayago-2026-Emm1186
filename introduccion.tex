@@ -1,9 +1,9 @@
 \section{Introducción}
 \label{ch:introduccion}
 
-En la actualidad, el Poder Judicial del Estado de Tamaulipas (PJETAM) se enfrenta a un volumen creciente de promociones y escritos presentados por las partes involucradas en los diversos juicios. El proceso tradicional para dar respuesta a estas promociones implica la lectura manual de los documentos físicos o digitalizados, la búsqueda del marco normativo correspondiente en los Códigos de Procedimientos (Civiles, Familiares o Mercantiles) y la redacción desde cero del acuerdo judicial. Esta metodología manual no solo consume una cantidad significativa de tiempo para el personal de los juzgados, sino que resulta en un flujo de trabajo repetitivo que es susceptible a cuellos de botella y posibles errores humanos debido a la carga laboral.
+En el panorama contemporáneo de la administración pública, la transformación digital de los sistemas de impartición de justicia se ha convertido en una prioridad estratégica a nivel global para garantizar el derecho humano a una justicia pronta y expedita. El Poder Judicial del Estado de Tamaulipas (PJETAM) enfrenta actualmente un incremento exponencial en el volumen de promociones, demandas y escritos presentados diariamente por los litigantes en las diversas materias del derecho. El flujo operativo tradicional de los juzgados exige que el personal de acuerdos realice una lectura visual minuciosa de cada documento (físico o digitalizado), localice de manera manual los fundamentos jurídicos correspondientes dentro de los Códigos de Procedimientos vigentes y redacte individualmente, desde cero, cada borrador de acuerdo judicial. Esta dependencia de procesos manuales no solo consume recursos críticos de tiempo, sino que satura las capacidades del capital humano, generando cuellos de botella operativos y aumentando el riesgo de errores de transcripción o inconsistencias procesales debido a la fatiga por la alta carga laboral y el estrés crónico (\textit{burnout}) que experimenta el personal \cite{Fine2024}.
 
-Ante esta problemática, el presente proyecto plantea el desarrollo e implementación del "Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa" (SAGAI). Este sistema busca optimizar y modernizar las labores administrativas y jurídicas mediante la integración de dos tecnologías clave: un módulo de Reconocimiento Óptico de Caracteres (OCR) para la extracción automatizada del texto contenido en las promociones digitalizadas, y la implementación de un Modelo de Lenguaje Grande (LLM), específicamente Anthropic Claude. La inteligencia artificial actuará como un asistente virtual capaz de analizar la solicitud extraída y proponer un borrador del acuerdo judicial fundamentado estrictamente en el marco normativo vigente, permitiendo al personal del juzgado centrar sus esfuerzos en la revisión, validación y firma final del documento a través de una interfaz web intuitiva.
+Para hacer frente a este desafío institucional, el presente proyecto de investigación aborda el diseño, desarrollo e implementación del ``Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa'' (SAGAI). Concebido como una plataforma de \textit{LegalTech}, SAGAI integra tecnologías avanzadas de visión computacional y modelos avanzados de lenguaje artificial con el objetivo de automatizar las etapas mecánicas de extracción de información y sugerencia normativa. Mediante un módulo local de Reconocimiento Óptico de Caracteres (OCR), el sistema transforma las promociones digitalizadas en texto estructurado e interpretable. Posteriormente, un Modelo de Lenguaje Grande (LLM) —específicamente implementado bajo la arquitectura de Anthropic Claude— analiza semánticamente las peticiones del promovente, las correlaciona con la base de conocimiento de la legislación local y genera de forma automatizada un proyecto de acuerdo debidamente fundado y motivado. De este modo, la plataforma opera bajo un esquema de inteligencia asistida, donde la herramienta tecnológica asume las tareas de procesamiento masivo, permitiendo al personal del juzgado concentrar su experiencia en la revisión crítica, validación y firma del documento a través de una interfaz web intuitiva y de alta usabilidad.
 
 \subsection{Antecedentes}
 \label{sec:antecedentes}
@@ -11,60 +11,76 @@ Ante esta problemática, el presente proyecto plantea el desarrollo e implementa
 \subsubsection{Antecedentes de la Empresa}
 \label{subsec:antecedentes_empresa}
 
-El Poder Judicial del Estado de Tamaulipas (PJETAM) es el órgano encargado de administrar e impartir justicia a nivel estatal. Para comprender la pertinencia de la implementación tecnológica, es fundamental alinear los objetivos del proyecto con la filosofía institucional de la dependencia:
+El Poder Judicial del Estado de Tamaulipas (PJETAM) es la institución constitucional facultada para salvaguardar el ordenamiento legal y administrar justicia en el ámbito local. La viabilidad y adopción de una solución como SAGAI se fundamenta de forma directa en los principios rectores institucionales descritos en la filosofía de la organización, los cuales se encuentran oficialmente estipulados en su plataforma digital \cite{pjetamMision}:
 
 \textbf{Misión:} Impartir y administrar justicia de manera eficiente y expedita, solucionando conflictos a través de los órganos jurisdiccionales y los medios alternos, contribuyendo a garantizar el estado de derecho y la paz social en Tamaulipas.
 
 \textbf{Visión:} Transcender como Institución de excelencia, mediante la profesionalización e institucionalización de sus integrantes, en un ambiente de humanismo y justicia institucional, haciendo uso de la innovación tecnológica y optimización de los recursos, con responsabilidad social y pleno respeto a la ley, los derechos humanos y la igualdad de género.
 
-Previo al desarrollo del Sistema de Apoyo a la Generación de Acuerdos con IA (SAGAI), el manejo de promociones en los juzgados dependía enteramente de procesos manuales. El personal judicial recibía los documentos (físicos o escaneados en formato de imagen sin reconocimiento de texto), procedía a su lectura íntegra visual, realizaba búsquedas manuales en los Códigos de Procedimientos (Civiles, Familiares o Mercantiles) y redactaba desde cero los acuerdos utilizando procesadores de texto convencionales. Esta metodología tradicional limitaba la capacidad de respuesta operativa, incrementando el rezago de expedientes e impidiendo el aprovechamiento de la "innovación tecnológica" y la "optimización de recursos" declarados en la visión de la institución.
+Previo al desarrollo del sistema SAGAI, la gestión de trámites documentales carecía de herramientas de indexación semántica o automatización inteligente. Los escritos digitalizados por los juzgados eran almacenados únicamente como archivos de imagen estáticos, lo que imposibilitaba la búsqueda automatizada de palabras clave o la extracción rápida de nombres de partes procesales, números de expedientes o prestaciones reclamadas. Al no existir un puente computacional entre el documento recibido y los sistemas de procesamiento de texto, el flujo de trabajo permanecía atado a las limitantes operativas del copiado y redactado manual, contraviniendo las directrices de optimización de recursos e innovación tecnológica estipuladas en la visión del PJETAM.
 
 \subsubsection{Antecedentes Teóricos}
 \label{subsec:antecedentes_teoricos}
 
-La solución a la problemática del procesamiento manual de documentos legales se fundamenta en la convergencia de tecnologías emergentes, un campo conocido como \textit{LegalTech}. Para la construcción de SAGAI, se requiere la integración teórica y práctica de dos áreas principales de las ciencias computacionales:
+El desarrollo de sistemas aplicados al entorno judicial se inscribe en la intersección multidisciplinaria de las ciencias de la computación y el derecho. Para dar sustento a la arquitectura y funcionalidad de SAGAI, la presente investigación se fundamenta en los siguientes pilares teóricos y tecnológicos:
 
-\begin{itemize}
-    \item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Es la tecnología que permite convertir imágenes de texto (fotografías o documentos escaneados) en texto codificado legible por máquina. El uso de motores de código abierto, como Tesseract OCR, resulta vital en el sector público para garantizar el procesamiento local y la estricta privacidad de los datos judiciales.
-    \item \textbf{Modelos de Lenguaje Grande (LLMs):} Son sistemas de Inteligencia Artificial Generativa entrenados con vastos volúmenes de datos para comprender, resumir y estructurar lenguaje humano. En el contexto de este proyecto, actúan como asistentes capaces de interpretar el texto extraído por el OCR, enlazarlo con el marco normativo correspondiente y generar una propuesta jurídica coherente.
-\end{itemize}
+\textbf{Transformación Digital en el Sistema Judicial (LegalTech)} \\
+La transformación digital en los sistemas judiciales representa un cambio paradigmático en la administración de justicia, particularmente mediante la implementación de herramientas asistidas por inteligencia artificial. Los sistemas de información han demostrado un potencial significativo en la reducción de tiempos de procesamiento de casos e introduciendo funcionalidades innovadoras como la anonimización automática de sentencias y la traducción especializada \cite{Frontiers2025}. Sin embargo, la evaluación del impacto de estas implementaciones tecnológicas requiere marcos que equilibren la eficiencia tecnológica con los principios de justicia, transparencia y acceso equitativo, premisa fundamental bajo la cual opera el PJETAM.
 
-\textbf{Tabla Comparativa}
+\textbf{Reconocimiento Óptico de Caracteres (OCR)} \\
+Los avances recientes en tecnología de reconocimiento óptico de caracteres (OCR) han sido impulsados por la necesidad creciente de procesar automáticamente grandes volúmenes de documentos impresos y manuscritos en el sector público. Investigaciones recientes presentan métodos innovadores que integran modelos de aprendizaje profundo para el análisis de disposición de documentos y la detección de líneas de texto, abordando los desafíos únicos de formatos complejos y digitalizaciones de baja calidad \cite{Fateh2024}. Este enfoque es vital para SAGAI, ya que la precisión en la extracción textual de las promociones físicas es el primer paso crítico para el análisis semántico posterior.
 
-A continuación, se presenta un análisis comparativo entre la metodología de trabajo actual (manual) en los juzgados y la propuesta de valor integrada mediante la implementación del sistema SAGAI.
+\textbf{Procesamiento de Lenguaje Natural (NLP) en Textos Legales} \\
+La aplicación del NLP en contextos legales presenta desafíos únicos derivados de características estructurales específicas: documentos de extensión considerable, léxico especializado y documentos frecuentemente no estructurados. La literatura científica evidencia que los modelos modernos han revolucionado tareas como la predicción de juicios y la extracción de entidades en el dominio legal \cite{ACMComputing2024}. Estas herramientas demuestran mejoras significativas permitiendo la identificación automática de partes litigantes y el análisis semántico profundo de las pretensiones, base del procesamiento de SAGAI.
+
+\textbf{Modelos de Lenguaje Grande (LLMs) y Arquitectura Transformer} \\
+La arquitectura \textit{Transformer} ha consolidado su posición como fundamento de los modelos de lenguaje grandes (LLMs) contemporáneos mediante el mecanismo de autoatención (\textit{self-attention}). Este mecanismo permite que cada posición en una secuencia de entrada establezca relaciones ponderadas con todas las demás, capturando dependencias a largo plazo \cite{Chen2025}. La implementación de SAGAI mediante la inferencia de LLMs aprovecha esta capacidad expresiva, habilitando el procesamiento de documentos legales extensos sin degradación en la comprensión semántica del marco normativo.
+
+\textbf{Inteligencia Artificial Generativa para Documentos Legales} \\
+Los modelos de inteligencia artificial generativa han demostrado capacidades transformativas en la asistencia a procesos de redacción y estructuración de documentos formales. Estudios de campo indican que los profesionales reportan una productividad aumentada en la redacción de borradores iniciales y la síntesis de expedientes \cite{ChienKim2026}. Por consiguiente, la generación asistida de acuerdos judiciales requiere la integración de sistemas de recuperación aumentada para garantizar la precisión jurídica y la conformidad con la normativa del estado de Tamaulipas.
+
+\textbf{Inteligencia Artificial Explicable (XAI) y Ética} \\
+La adopción de sistemas de IA en dominios críticos como la justicia ha intensificado la demanda por transparencia y responsabilidad algorítmica. En contextos legales, la comunidad científica ha identificado la necesidad de enfoques sensibles al contexto para evitar la introducción de sesgos \cite{ICIT2024}. El enfoque de \textit{human-in-the-loop}, que mantiene la supervisión humana en procesos decisionales, emerge como un requisito fundamental para SAGAI, permitiendo que el personal del juzgado valide, comprenda y modifique las propuestas generadas antes de su oficialización.
+
+\textbf{Fundamentos de Arquitectura Web Cliente-Servidor} \\
+La arquitectura cliente-servidor constituye un paradigma fundamental en el desarrollo de sistemas modernos, caracterizado por la separación clara de responsabilidades entre el \textit{frontend} y el \textit{backend}. En el contexto de sistemas de información judicial, esta arquitectura facilita el desacoplamiento entre la interfaz de usuario ejecutada en navegadores web y la lógica de procesamiento residente en servidores dedicados \cite{Nyabuto2024}. Los protocolos HTTP bajo arquitectura REST optimizan el rendimiento en sistemas de procesamiento documental intensivos, sirviendo como base estructural para el despliegue de SAGAI.
+
+Con la finalidad de situar la pertinencia técnica del proyecto y justificar la arquitectura seleccionada, a continuación se presenta en la Tabla \ref{tab:comparativa_estado_practica} un análisis comparativo de las diferentes alternativas tecnológicas evaluadas para la resolución del problema.
 
 \begin{table}[H]
     \centering
-    \caption{Tabla Comparativa: Proceso Tradicional vs. Sistema SAGAI.}
-    \label{tab:comparativa_procesos}
-    \begin{tabular}{|p{3.5cm}|p{5.5cm}|p{5.5cm}|}
+    \caption{Tabla Comparativa: Análisis de alternativas tecnológicas para la generación de acuerdos judiciales.}
+    \label{tab:comparativa_estado_practica}
+    \begin{tabular}{|p{2.6cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.2cm}|}
         \hline
-        \textbf{Característica} & \textbf{Proceso Tradicional (Actual)} & \textbf{Sistema SAGAI (Propuesto)} \\
+        \textbf{Criterio} & \textbf{Procesamiento Manual (Estado Actual)} & \textbf{Automatización por Plantillas (Software Tradicional)} & \textbf{Modelos LLM 100\% en la Nube (APIs Públicas)} & \textbf{Enfoque Híbrido Local (OCR + Claude) [SAGAI]} \\
         \hline
-        \textbf{Lectura de Documentos} & Lectura visual manual de fojas físicas o imágenes digitales. & Extracción automática de texto mediante el motor Tesseract OCR. \\
+        \textbf{Privacidad y Seguridad} & Alta (los documentos físicos no salen del juzgado). & Alta (procesamiento en servidores locales). & Baja (riesgo de exponer datos sensibles de expedientes en servidores de terceros). & Alta (limpieza de imagen y OCR local, con envíos cifrados y controlados). \\
         \hline
-        \textbf{Búsqueda Normativa} & Consulta manual en libros físicos o archivos de los Códigos. & Base de datos jurídica integrada para consulta y referenciación automática. \\
+        \textbf{Precisión de Extracción} & Variable (depende de la fatiga visual del personal). & Baja (falla si el formato de la promoción escaneada cambia). & Alta (excelente comprensión semántica del texto). & Muy Alta (lectura robusta mediante visión computacional y análisis semántico avanzado). \\
         \hline
-        \textbf{Redacción de Acuerdos} & Mecanografía desde cero en procesadores de texto (ej. MS Word). & Generación de borrador automatizado mediante Inteligencia Artificial. \\
+        \textbf{Adaptabilidad Legal} & Lenta (requiere capacitación constante del personal ante reformas). & Nula (requiere reprogramar el código fuente con cada reforma de ley). & Media (tiende a alucinar jurisprudencias o leyes de otros países). & Alta (se contextualiza dinámicamente con los Códigos de Tamaulipas). \\
         \hline
-        \textbf{Manejo de Errores} & Alta susceptibilidad a errores de transcripción o fatiga visual. & Texto original extraído fielmente, requiriendo solo revisión del formato final. \\
+        \textbf{Facilidad de Implementación} & N/A (Situación actual). & Media (requiere mapear cientos de reglas estáticas manualmente). & Alta (fácil conexión, pero con bloqueos burocráticos por privacidad). & Media (requiere orquestar visión computacional e IA generativa). \\
         \hline
-        \textbf{Enfoque del Personal} & Tareas administrativas y mecanográficas altamente repetitivas. & Análisis jurídico, revisión, ajuste y validación final de la propuesta generada. \\
+        \textbf{Viabilidad para el Proyecto} & Nula (no resuelve el problema del rezago y fatiga). & Baja (sistema muy rígido y obsoleto a corto plazo). & Baja (inviable por las estrictas políticas de protección de datos judiciales). & \textbf{Alta (es la opción más segura, escalable y precisa para el PJETAM).} \\
         \hline
     \end{tabular}
-    \caption*{Nota: Comparación de los flujos de trabajo en la elaboración de acuerdos judiciales.}
+    \caption*{Nota: Análisis comparativo para determinar la viabilidad técnica de la arquitectura propuesta.}
 \end{table}
+
+A partir de la comparación realizada, la alternativa más viable para el proyecto es el desarrollo de un enfoque híbrido que integre Reconocimiento Óptico de Caracteres (OCR) junto con la inferencia de un Modelo de Lenguaje Grande. Esta opción permite extraer el texto de las promociones físicas sin comprometer la privacidad de los expedientes judiciales en servidores no autorizados, superando la rigidez operativa de las plantillas estáticas y garantizando un alto grado de adaptabilidad a la legislación del Estado de Tamaulipas.
 
 \subsection{Planteamiento del Problema}
 \label{sec:problema}
 
-Actualmente, el personal de los juzgados invierte una cantidad considerable de tiempo en la lectura, transcripción manual y análisis de promociones físicas o escaneadas. Al no contar con un sistema interconectado que vincule automáticamente el contenido de la promoción con los Códigos de Procedimientos aplicables, los servidores públicos dedican horas a labores de mecanografía y búsqueda de fundamentos legales. Este flujo de trabajo genera un cuello de botella que ralentiza la impartición de justicia, aumenta el rezago de expedientes y expone el proceso a errores humanos por fatiga, evidenciando la falta de una herramienta tecnológica que asista en la etapa preliminar de redacción.
+El procesamiento ordinario de promociones en el Poder Judicial del Estado de Tamaulipas representa un cuello de botella logístico debido al volumen constante de trámites ingresados diariamente. Al carecer de un sistema inteligente que asocie en tiempo real el texto de un escrito escaneado con la normatividad procesal correspondiente, el personal jurídico gasta la mayor parte de su jornada laboral en tareas mecánicas de captura de datos, búsqueda en Códigos en formato físico y transcripción de formatos preestablecidos. Este esquema operativo ralentiza la velocidad de resolución judicial, incrementa los tiempos de espera para las partes involucradas en los juicios y eleva la probabilidad de incurrir en omisiones o inconsistencias humanas provocadas por el estrés laboral y la fatiga visual, evidenciando la urgente necesidad de un entorno tecnológico de asistencia inteligente.
 
 \subsection{Objetivos}
 \label{sec:objetivos}
 
 \subsubsection{Objetivo General}
-\label{subsec:objective_general}
+\label{subsec:objetivo_general}
 
 Desarrollar una solución basada en inteligencia artificial generativa que asista a los juzgados del Poder Judicial del Estado de Tamaulipas en la elaboración de acuerdos judiciales, mediante la extracción y análisis del texto de promociones o escritos presentados por las partes, y la generación automatizada del contenido del acuerdo correspondiente, tomando como base la normatividad aplicable (incluyendo códigos de procedimientos civiles y penales) así como acuerdos de referencia según el tipo de promoción.
 
@@ -84,7 +100,7 @@ Desarrollar una solución basada en inteligencia artificial generativa que asist
 \subsection{Justificación}
 \label{sec:justificacion}
 
-La implementación del sistema SAGAI se justifica por la necesidad apremiante de modernizar y optimizar el eslabón más crítico del proceso judicial: la redacción y fundamentación de acuerdos. Al delegar la extracción de texto y la integración del marco normativo a la inteligencia artificial, se reduce drásticamente el tiempo operativo por expediente. Desde una perspectiva tecnológica, la creación de una base de conocimiento jurídico propia dota al juzgado de una herramienta escalable que estandariza los criterios de redacción. Asimismo, el uso de tecnologías de código abierto y modelos LLM asegura que el PJETAM se posicione a la vanguardia en la implementación de "LegalTech" a nivel nacional, mejorando la eficiencia en la atención ciudadana sin comprometer la seguridad de la información institucional.
+La justificación teórica y práctica de SAGAI radica en su impacto directo sobre los indicadores de eficiencia en la impartición de justicia local. Al delegar las fases repetitivas de mecanografía y localización de artículos legales a un sistema informático asistido, el tiempo requerido para el dictado de un acuerdo disminuye drásticamente, atacando directamente el rezago judicial. Desde el punto de vista tecnológico, el desarrollo de este prototipo demuestra que es viable integrar motores de inteligencia artificial locales y de código abierto sin incurrir en costos elevados de licenciamiento de software propietario, dotando a la institución de una plataforma escalable, soberana y alineada con los estándares modernos de la corriente internacional conocida como \textit{Digital Justice}.
 
 \subsection{Alcances y Limitaciones}
 \label{sec:alcances_limitaciones}
@@ -92,21 +108,21 @@ La implementación del sistema SAGAI se justifica por la necesidad apremiante de
 \subsubsection{Alcances}
 \label{subsec:alcances}
 
-Los alcances del presente proyecto contemplan los siguientes aspectos:
+Los alcances fijados para el desarrollo del sistema son:
 \begin{itemize}
-    \item El sistema procesará documentos digitalizados (imágenes y PDFs), extrayendo el texto en español mediante el motor local Tesseract OCR.
-    \item Se construirá una base de conocimiento jurídico enfocada inicialmente en las materias Civil, Familiar y Mercantil, indexando leyes y acuerdos de referencia.
-    \item La plataforma contará con una interfaz web functional que permitirá a los usuarios la visualización, validación y edición manual de los borradores sugeridos por la Inteligencia Artificial.
+    \item El módulo de visión (OCR) procesará archivos de formato de imagen (PNG, JPG) y documentos PDF, ejecutando la limpieza de ruido y la extracción de caracteres en idioma español.
+    \item El entorno cognitivo de la IA limitará su marco contextual de fundamentación inicial a las materias Civil, Familiar y Mercantil del estado de Tamaulipas.
+    \item El frontend del sistema proveerá una aplicación web responsiva e interactiva que integrará herramientas de edición enriquecida de texto para el control final del servidor público.
 \end{itemize}
 
 \subsubsection{Limitaciones}
 \label{subsec:limitaciones}
 
-Las limitaciones identificadas para el desarrollo y operación del sistema son:
+Las limitantes que restringen el despliegue del software corresponden a:
 \begin{itemize}
-    \item La precisión de la extracción de texto (OCR) dependerá directamente de la legibilidad, iluminación, nitidez y calidad de escaneo del documento original.
-    \item Los borradores generados por la IA son estrictamente propuestas de asistencia técnica; carecen de validez legal autónoma y requieren obligatoriamente la revisión, validación jurídica y firma del titular del juzgado.
-    \item En su fase inicial, la base de datos normativa se limitará a los códigos y procedimientos específicos definidos por el PJETAM, no abarcando jurisprudencias o normatividad federal externa no alimentada previamente al sistema.
+    \item El índice de precisión del reconocimiento de texto está condicionado a factores físicos del documento fuente, tales como la resolución del escáner, presencia de enmendaduras, sellos institucionales sobre el texto o dobleces en las hojas.
+    \item El sistema bajo ninguna circunstancia reemplaza las facultades de decisión jurídica del servidor público; opera exclusivamente como un asistente técnico de generación de propuestas que carecen de validez legal por sí mismas.
+    \item El modelo no interpretará jurisprudencias federales complejas, interpretaciones de la Suprema Corte, ni normativas ajenas a la base de conocimiento estructurada para el estado de Tamaulipas en esta fase de desarrollo.
 \end{itemize}
 
 \subsection{Temas Tentativos para el Marco Teórico}
@@ -120,44 +136,3 @@ Para dar sustento a la investigación y desarrollo del sistema SAGAI, el marco t
     \item \textbf{Inteligencia Artificial Generativa y LLMs:} Conceptos básicos de los Modelos de Lenguaje Grande, su capacidad de razonamiento lógico-semántico y procesamiento de lenguaje natural (NLP).
     \item \textbf{Arquitectura Web Cliente-Servidor:} Separación de responsabilidades entre el Frontend (interfaces de usuario interactivas) y el Backend (desarrollo de APIs RESTful utilizando FastAPI).
 \end{itemize}
-
-\subsection{Ejemplos de Tablas e Inclusión de Imágenes}
-\label{sec:ejemplos_elementos}
-
-Para ilustrar el uso de elementos visuales en su tesis, a continuación se presentan ejemplos de cómo incluir tablas e imágenes en LaTeX, adaptados a la información del proyecto.
-
-\subsubsection{Inclusión de Tablas}
-
-Las tablas son herramientas fundamentales para presentar datos de manera organizada y comprensible.
-
-\subsubsection{Inclusión de Imágenes}
-
-Las imágenes, gráficos o diagramas son cruciales para complementar la explicación textual y facilitar la comprensión de conceptos complejos o resultados visuales.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/diagrama_proceso}
-    \caption{Diagrama de un process de control automático.}
-    \label{fig:diagrama_control}
-\end{figure}
-
-% Para incluir una imagen, se utiliza el entorno `figure` y el comando `\includegraphics`. Es fundamental especificar la ruta de la imagen (en este caso, `img/diagrama_proceso`) y un `width` para controlar su tamaño. Al igual que con las tablas, un `\caption` y un `\label` son indispensables. Es crucial que cada imagen tenga una calidad adecuada y que sea relevante para el texto.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{img/grafico_datos1}
-        \caption{Datos de Temperatura.}
-        \label{fig:subfig_temp}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{img/grafico_datos2}
-        \caption{Datos de Presión.}
-        \label{fig:subfig_pres}
-    \end{subfigure}
-    \caption{Comparación de datos operativos de un sistema (Temperatura vs. Presión).}
-    \label{fig:comparacion_datos}
-\end{figure}
-
-Incluso es posible combinar varias imágenes en una sola figura, como se muestra en la Figura \ref{fig:comparacion_datos}, utilizando el paquete `subcaption`. Asegúrense de que todas las figuras y tablas estén debidamente referenciadas en el texto y que su contenido sea autoexplicativo, utilizando los pies de figura y títulos de tabla de manera efectiva.
