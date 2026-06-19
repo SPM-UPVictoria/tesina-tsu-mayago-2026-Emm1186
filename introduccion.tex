@@ -49,32 +49,81 @@ Con la finalidad de situar la pertinencia técnica del proyecto y justificar la 
 
 \begin{table}[H]
     \centering
-    \caption{Tabla Comparativa: Análisis de alternativas tecnológicas para la generación de acuerdos judiciales.}
+    \caption{Comparación de alternativas tecnológicas para la generación de acuerdos judiciales.}
     \label{tab:comparativa_estado_practica}
-    \begin{tabular}{|p{2.6cm}|p{3.0cm}|p{3.0cm}|p{3.0cm}|p{3.2cm}|}
+    \small
+    \begin{tabular}{|p{2.8cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{3.0cm}|}
         \hline
-        \textbf{Criterio} & \textbf{Procesamiento Manual (Estado Actual)} & \textbf{Automatización por Plantillas (Software Tradicional)} & \textbf{Modelos LLM 100\% en la Nube (APIs Públicas)} & \textbf{Enfoque Híbrido Local (OCR + Claude) [SAGAI]} \\
+        \textbf{Criterio} &
+        \textbf{Manual} &
+        \textbf{Plantillas} &
+        \textbf{LLM en Nube} &
+        \textbf{SAGAI} \\
         \hline
-        \textbf{Privacidad y Seguridad} & Alta (los documentos físicos no salen del juzgado). & Alta (procesamiento en servidores locales). & Baja (riesgo de exponer datos sensibles de expedientes en servidores de terceros). & Alta (limpieza de imagen y OCR local, con envíos cifrados y controlados). \\
+        
+        \textbf{Privacidad y Seguridad} &
+        \textbf{Alta} \newline Documentos internos &
+        \textbf{Alta} \newline Servidores locales &
+        \textbf{Baja} \newline Datos en terceros &
+        \textbf{Alta} \newline OCR local y controlado \\
         \hline
-        \textbf{Precisión de Extracción} & Variable (depende de la fatiga visual del personal). & Baja (falla si el formato de la promoción escaneada cambia). & Alta (excelente comprensión semántica del texto). & Muy Alta (lectura robusta mediante visión computacional y análisis semántico avanzado). \\
+        
+        \textbf{Precisión de Extracción} &
+        \textbf{Media} \newline Depende del operador &
+        \textbf{Baja} \newline Sensibles al formato &
+        \textbf{Alta} \newline Comprensión semántica &
+        \textbf{Muy Alta} \newline OCR + IA generativa \\
         \hline
-        \textbf{Adaptabilidad Legal} & Lenta (requiere capacitación constante del personal ante reformas). & Nula (requiere reprogramar el código fuente con cada reforma de ley). & Media (tiende a alucinar jurisprudencias o leyes de otros países). & Alta (se contextualiza dinámicamente con los Códigos de Tamaulipas). \\
+        
+        \textbf{Adaptabilidad Legal} &
+        \textbf{Baja} \newline Actualización manual &
+        \textbf{Muy Baja} \newline Reglas rígidas &
+        \textbf{Media} \newline Posibles alucinaciones &
+        \textbf{Alta} \newline Contexto jurídico específico \\
         \hline
-        \textbf{Facilidad de Implementación} & N/A (Situación actual). & Media (requiere mapear cientos de reglas estáticas manualmente). & Alta (fácil conexión, pero con bloqueos burocráticos por privacidad). & Media (requiere orquestar visión computacional e IA generativa). \\
+        
+        \textbf{Facilidad de Implementación} &
+        \textbf{N/A} &
+        \textbf{Media} \newline Configuración extensa &
+        \textbf{Alta} \newline Integración sencilla &
+        \textbf{Media} \newline Múltiples componentes \\
         \hline
-        \textbf{Viabilidad para el Proyecto} & Nula (no resuelve el problema del rezago y fatiga). & Baja (sistema muy rígido y obsoleto a corto plazo). & Baja (inviable por las estrictas políticas de protección de datos judiciales). & \textbf{Alta (es la opción más segura, escalable y precisa para el PJETAM).} \\
+        
+        \textbf{Escalabilidad} &
+        \textbf{Baja} \newline Depende del personal &
+        \textbf{Media} \newline Limitada por reglas &
+        \textbf{Alta} \newline Procesamiento automático &
+        \textbf{Alta} \newline Arquitectura escalable \\
         \hline
+        
+        \textbf{Viabilidad para el Proyecto} &
+        \textbf{Baja} \newline No reduce rezago &
+        \textbf{Baja} \newline Poca flexibilidad &
+        \textbf{Baja} \newline Restricciones de privacidad &
+        \textbf{Alta} \newline Solución seleccionada \\
+        \hline
+        
     \end{tabular}
-    \caption*{Nota: Análisis comparativo para determinar la viabilidad técnica de la arquitectura propuesta.}
 \end{table}
 
-A partir de la comparación realizada, la alternativa más viable para el proyecto es el desarrollo de un enfoque híbrido que integre Reconocimiento Óptico de Caracteres (OCR) junto con la inferencia de un Modelo de Lenguaje Grande. Esta opción permite extraer el texto de las promociones físicas sin comprometer la privacidad de los expedientes judiciales en servidores no autorizados, superando la rigidez operativa de las plantillas estáticas y garantizando un alto grado de adaptabilidad a la legislación del Estado de Tamaulipas.
+La Tabla \ref{tab:comparativa_estado_practica} presenta una comparación general entre las principales alternativas tecnológicas identificadas para apoyar la elaboración de acuerdos judiciales. El procesamiento manual conserva altos niveles de privacidad, pero presenta limitaciones en escalabilidad y eficiencia operativa. Por su parte, los sistemas basados en plantillas ofrecen cierta automatización, aunque poseen baja capacidad de adaptación ante cambios normativos. Los modelos de lenguaje operados completamente en la nube proporcionan altos niveles de procesamiento semántico, pero generan preocupaciones relacionadas con la confidencialidad de la información judicial. Finalmente, el enfoque híbrido implementado en SAGAI combina capacidades de reconocimiento óptico de caracteres y generación asistida mediante inteligencia artificial, manteniendo un equilibrio entre privacidad, precisión, adaptabilidad y viabilidad institucional, razón por la cual fue seleccionado como la alternativa más adecuada para el proyecto.
 
 \subsection{Planteamiento del Problema}
 \label{sec:problema}
 
-El procesamiento ordinario de promociones en el Poder Judicial del Estado de Tamaulipas representa un cuello de botella logístico debido al volumen constante de trámites ingresados diariamente. Al carecer de un sistema inteligente que asocie en tiempo real el texto de un escrito escaneado con la normatividad procesal correspondiente, el personal jurídico gasta la mayor parte de su jornada laboral en tareas mecánicas de captura de datos, búsqueda en Códigos en formato físico y transcripción de formatos preestablecidos. Este esquema operativo ralentiza la velocidad de resolución judicial, incrementa los tiempos de espera para las partes involucradas en los juicios y eleva la probabilidad de incurrir en omisiones o inconsistencias humanas provocadas por el estrés laboral y la fatiga visual, evidenciando la urgente necesidad de un entorno tecnológico de asistencia inteligente.
+El Poder Judicial del Estado de Tamaulipas (PJETAM) tiene la responsabilidad de garantizar una impartición de justicia eficiente, imparcial y expedita para la ciudadanía. Sin embargo, el incremento constante en el número de promociones, escritos y demandas presentados diariamente ante los órganos jurisdiccionales ha generado una creciente carga de trabajo para el personal encargado de la elaboración y gestión de acuerdos judiciales. Esta situación representa un desafío operativo importante, ya que gran parte de los procedimientos asociados al análisis documental y la redacción de acuerdos continúan realizándose de forma manual.
+
+Actualmente, cuando una promoción es recibida por un juzgado, el personal debe revisar detalladamente el contenido del documento, identificar la naturaleza de la solicitud realizada por las partes, localizar la normativa aplicable dentro de los códigos procesales correspondientes y redactar el acuerdo judicial respectivo. Este procedimiento requiere una inversión considerable de tiempo y esfuerzo humano, especialmente cuando se trabaja con expedientes digitalizados en formato de imagen o documentos escaneados que no permiten una búsqueda automatizada de información.
+
+La dependencia de procesos manuales provoca que una parte significativa de la jornada laboral del personal jurisdiccional se destine a tareas repetitivas de lectura, captura de información, consulta normativa y redacción documental. Como consecuencia, se generan cuellos de botella en el flujo de trabajo de los juzgados, afectando la velocidad con la que se atienden los asuntos en trámite y dificultando el cumplimiento de los principios de justicia pronta y expedita establecidos en el marco jurídico mexicano.
+
+Adicionalmente, el elevado volumen de documentos procesados diariamente incrementa la probabilidad de errores humanos derivados de la fatiga visual, la carga cognitiva y el estrés laboral. Entre estos errores pueden encontrarse omisiones de información relevante, inconsistencias en la fundamentación jurídica, transcripciones incorrectas o retrasos en la emisión de acuerdos. Aunque dichos errores pueden ser corregidos mediante revisiones posteriores, representan un factor que impacta negativamente la eficiencia operativa de la institución.
+
+Por otra parte, los avances recientes en inteligencia artificial generativa, procesamiento de lenguaje natural y reconocimiento óptico de caracteres han demostrado su capacidad para automatizar tareas relacionadas con la comprensión de documentos, extracción de información y generación asistida de texto. No obstante, actualmente el PJETAM no cuenta con una herramienta tecnológica que integre estas capacidades para asistir de manera especializada al personal judicial en la elaboración de acuerdos, aprovechando además la normatividad vigente y los criterios documentales utilizados en los juzgados.
+
+Ante esta situación surge la necesidad de desarrollar una solución tecnológica que permita automatizar las actividades repetitivas asociadas al análisis de promociones y la generación preliminar de acuerdos judiciales, manteniendo siempre la supervisión y validación final por parte del servidor público competente. Una herramienta de este tipo contribuiría a optimizar los tiempos de procesamiento documental, reducir la carga operativa del personal, disminuir la probabilidad de errores humanos y fortalecer los procesos de transformación digital impulsados por el Poder Judicial del Estado de Tamaulipas.
+
+Por lo anterior, la presente investigación plantea el desarrollo de un Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa (SAGAI), capaz de procesar promociones digitalizadas, identificar información relevante, relacionarla con la normatividad aplicable y generar propuestas de acuerdos que sirvan como apoyo para el trabajo del personal jurisdiccional.
 
 \subsection{Objetivos}
 \label{sec:objetivos}
