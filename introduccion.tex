@@ -3,7 +3,7 @@
 
 En el panorama contemporáneo de la administración pública, la transformación digital de los sistemas de impartición de justicia se ha convertido en una prioridad estratégica a nivel global para garantizar el derecho humano a una justicia pronta y expedita. El Poder Judicial del Estado de Tamaulipas (PJETAM) enfrenta actualmente un incremento exponencial en el volumen de promociones, demandas y escritos presentados diariamente por los litigantes en las diversas materias del derecho. El flujo operativo tradicional de los juzgados exige que el personal de acuerdos realice una lectura visual minuciosa de cada documento (físico o digitalizado), localice de manera manual los fundamentos jurídicos correspondientes dentro de los Códigos de Procedimientos vigentes y redacte individualmente, desde cero, cada borrador de acuerdo judicial. Esta dependencia de procesos manuales no solo consume recursos críticos de tiempo, sino que satura las capacidades del capital humano, generando cuellos de botella operativos y aumentando el riesgo de errores de transcripción o inconsistencias procesales debido a la fatiga por la alta carga laboral y el estrés crónico (\textit{burnout}) que experimenta el personal \cite{Fine2024}.
 
-Para hacer frente a este desafío institucional, el presente proyecto de investigación aborda el diseño, desarrollo e implementación del ``Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa'' (SAGAI). Concebido como una plataforma de \textit{LegalTech}, SAGAI integra tecnologías avanzadas de visión computacional y modelos avanzados de lenguaje artificial con el objetivo de automatizar las etapas mecánicas de extracción de información y sugerencia normativa. Mediante un módulo local de Reconocimiento Óptico de Caracteres (OCR), el sistema transforma las promociones digitalizadas en texto estructurado e interpretable. Posteriormente, un Modelo de Lenguaje Grande (LLM) —específicamente implementado bajo la arquitectura de Anthropic Claude— analiza semánticamente las peticiones del promovente, las correlaciona con la base de conocimiento de la legislación local y genera de forma automatizada un proyecto de acuerdo debidamente fundado y motivado. De este modo, la plataforma opera bajo un esquema de inteligencia asistida, donde la herramienta tecnológica asume las tareas de procesamiento masivo, permitiendo al personal del juzgado concentrar su experiencia en la revisión crítica, validación y firma del documento a través de una interfaz web intuitiva y de alta usabilidad.
+Para hacer frente a este desafío institucional, el presente proyecto de investigación aborda el diseño, desarrollo e implementación del ``Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa'' (SAGAI). Concebido como una plataforma de \textit{LegalTech} \cite{Bakshi2024}, SAGAI integra tecnologías avanzadas de visión computacional y modelos avanzados de lenguaje artificial con el objetivo de automatizar las etapas mecánicas de extracción de información y sugerencia normativa. Mediante un módulo local de Reconocimiento Óptico de Caracteres (OCR), el sistema transforma las promociones digitalizadas en texto estructurado e interpretable. Posteriormente, un Modelo de Lenguaje Grande (LLM) —específicamente implementado bajo la arquitectura de Anthropic Claude— \cite{Bhatt2024} analiza semánticamente las peticiones del promovente, las correlaciona con la base de conocimiento de la legislación local y genera de forma automatizada un proyecto de acuerdo debidamente fundado y motivado. De este modo, la plataforma opera bajo un esquema de inteligencia asistida, donde la herramienta tecnológica asume las tareas de procesamiento masivo, permitiendo al personal del juzgado concentrar su experiencia en la revisión crítica, validación y firma del documento a través de una interfaz web intuitiva y de alta usabilidad.
 
 \subsection{Antecedentes}
 \label{sec:antecedentes}
@@ -22,28 +22,49 @@ Previo al desarrollo del sistema SAGAI, la gestión de trámites documentales ca
 \subsubsection{Antecedentes Teóricos}
 \label{subsec:antecedentes_teoricos}
 
-El desarrollo de sistemas aplicados al entorno judicial se inscribe en la intersección multidisciplinaria de las ciencias de la computación y el derecho. Para dar sustento a la arquitectura y funcionalidad de SAGAI, la presente investigación se fundamenta en los siguientes pilares teóricos y tecnológicos:
+El estado del arte en la aplicación de tecnologías de información e inteligencia artificial en el ámbito jurídico ha evolucionado de manera acelerada. A continuación, se describen los trabajos previos y sistemas análogos que fundamentan la viabilidad y pertinencia técnica de SAGAI:
 
-\textbf{Transformación Digital en el Sistema Judicial (LegalTech)} \\
-La transformación digital en los sistemas judiciales representa un cambio paradigmático en la administración de justicia, particularmente mediante la implementación de herramientas asistidas por inteligencia artificial. Los sistemas de información han demostrado un potencial significativo en la reducción de tiempos de procesamiento de casos e introduciendo funcionalidades innovadoras como la anonimización automática de sentencias y la traducción especializada \cite{Frontiers2025}. Sin embargo, la evaluación del impacto de estas implementaciones tecnológicas requiere marcos que equilibren la eficiencia tecnológica con los principios de justicia, transparencia y acceso equitativo, premisa fundamental bajo la cual opera el PJETAM.
+\textbf{Natural Language Processing for the Legal Domain: A Survey of Tasks, Datasets, Models, and Challenges} \cite{Ariai2025} \\
+Este estudio presenta una revisión sistemática sobre el uso del Procesamiento de Lenguaje Natural (NLP) en el ámbito jurídico. Los autores analizan tareas como clasificación de documentos, reconocimiento de entidades, respuesta a preguntas legales y predicción de decisiones judiciales. Asimismo, identifican modelos especializados para el dominio legal y los principales desafíos relacionados con explicabilidad, sesgo y transparencia en sistemas jurídicos basados en inteligencia artificial.
 
-\textbf{Reconocimiento Óptico de Caracteres (OCR)} \\
-Los avances recientes en tecnología de reconocimiento óptico de caracteres (OCR) han sido impulsados por la necesidad creciente de procesar automáticamente grandes volúmenes de documentos impresos y manuscritos en el sector público. Investigaciones recientes presentan métodos innovadores que integran modelos de aprendizaje profundo para el análisis de disposición de documentos y la detección de líneas de texto, abordando los desafíos únicos de formatos complejos y digitalizaciones de baja calidad \cite{Fateh2024}. Este enfoque es vital para SAGAI, ya que la precisión en la extracción textual de las promociones físicas es el primer paso crítico para el análisis semántico posterior.
+Este trabajo es directamente relevante porque SAGAI requiere procesar textos legales complejos (promociones judiciales) mediante NLP para extracción de información semántica antes de generar acuerdos. El survey proporciona base metodológica para seleccionar arquitecturas NLP apropiadas y dataset de referencia.
+\vspace{0.3cm}
 
-\textbf{Procesamiento de Lenguaje Natural (NLP) en Textos Legales} \\
-La aplicación del NLP en contextos legales presenta desafíos únicos derivados de características estructurales específicas: documentos de extensión considerable, léxico especializado y documentos frecuentemente no estructurados. La literatura científica evidencia que los modelos modernos han revolucionado tareas como la predicción de juicios y la extracción de entidades en el dominio legal \cite{ACMComputing2024}. Estas herramientas demuestran mejoras significativas permitiendo la identificación automática de partes litigantes y el análisis semántico profundo de las pretensiones, base del procesamiento de SAGAI.
+\textbf{Intelligent Legal Document Generation System and Method Based on Knowledge Graph} \cite{KnowledgeGraph2024} \\
+Este trabajo propone un sistema inteligente para la generación automática de documentos legales mediante grafos de conocimiento jurídico. La solución permite estructurar información normativa y utilizar relaciones semánticas para generar documentos más completos y coherentes que los métodos tradicionales basados en reglas. Los resultados muestran mejoras significativas en calidad e integridad del contenido generado.
 
-\textbf{Modelos de Lenguaje Grande (LLMs) y Arquitectura Transformer} \\
-La arquitectura \textit{Transformer} ha consolidado su posición como fundamento de los modelos de lenguaje grandes (LLMs) contemporáneos mediante el mecanismo de autoatención (\textit{self-attention}). Este mecanismo permite que cada posición en una secuencia de entrada establezca relaciones ponderadas con todas las demás, capturando dependencias a largo plazo \cite{Chen2025}. La implementación de SAGAI mediante la inferencia de LLMs aprovecha esta capacidad expresiva, habilitando el procesamiento de documentos legales extensos sin degradación en la comprensión semántica del marco normativo.
+Este trabajo es un antecedente directo de sistemas de generación de documentos legales. La arquitectura de grafo de conocimiento es análoga a cómo SAGAI podría estructurar normatividad jurídica para generar acuerdos judiciales coherentes.
+\vspace{0.3cm}
 
-\textbf{Inteligencia Artificial Generativa para Documentos Legales} \\
-Los modelos de inteligencia artificial generativa han demostrado capacidades transformativas en la asistencia a procesos de redacción y estructuración de documentos formales. Estudios de campo indican que los profesionales reportan una productividad aumentada en la redacción de borradores iniciales y la síntesis de expedientes \cite{ChienKim2026}. Por consiguiente, la generación asistida de acuerdos judiciales requiere la integración de sistemas de recuperación aumentada para garantizar la precisión jurídica y la conformidad con la normativa del estado de Tamaulipas.
+\textbf{A Survey of Large Language Models for Legal Tasks: Progress, Prospects and Challenges} \cite{SurveyLLMLegal2026} \\
+Este survey analiza la aplicación de Large Language Models (LLMs) en tareas jurídicas como recuperación de información legal, análisis documental, respuesta a preguntas y generación de documentos. Además, revisa metodologías como Retrieval-Augmented Generation (RAG), prompting y técnicas de razonamiento, identificando oportunidades y limitaciones para la integración de LLMs en entornos legales.
 
-\textbf{Inteligencia Artificial Explicable (XAI) y Ética} \\
-La adopción de sistemas de IA en dominios críticos como la justicia ha intensificado la demanda por transparencia y responsabilidad algorítmica. En contextos legales, la comunidad científica ha identificado la necesidad de enfoques sensibles al contexto para evitar la introducción de sesgos \cite{ICIT2024}. El enfoque de \textit{human-in-the-loop}, que mantiene la supervisión humana en procesos decisionales, emerge como un requisito fundamental para SAGAI, permitiendo que el personal del juzgado valide, comprenda y modifique las propuestas generadas antes de su oficialización.
+Este antecedente valida que los LLMs son técnica viable para generación de documentos legales. Proporciona framework metodológico para tareas específicas que SAGAI ejecutará (generación de acuerdos, análisis de promociones).
+\vspace{0.3cm}
 
-\textbf{Fundamentos de Arquitectura Web Cliente-Servidor} \\
-La arquitectura cliente-servidor constituye un paradigma fundamental en el desarrollo de sistemas modernos, caracterizado por la separación clara de responsabilidades entre el \textit{frontend} y el \textit{backend}. En el contexto de sistemas de información judicial, esta arquitectura facilita el desacoplamiento entre la interfaz de usuario ejecutada en navegadores web y la lógica de procesamiento residente en servidores dedicados \cite{Nyabuto2024}. Los protocolos HTTP bajo arquitectura REST optimizan el rendimiento en sistemas de procesamiento documental intensivos, sirviendo como base estructural para el despliegue de SAGAI.
+\textbf{Public Perceptions of Judges' Use of AI Tools in Courtroom Decision-Making} \cite{PublicPerceptionsAI2025} \\
+Este estudio analiza la percepción pública sobre el uso de inteligencia artificial como apoyo en la toma de decisiones judiciales. Los resultados muestran que la sociedad considera necesaria la supervisión humana, la transparencia y la explicabilidad de los sistemas de IA, destacando que estas tecnologías deben funcionar como herramientas de asistencia y no como sustitutos de los jueces.
+
+Este antecedente valida el diseño de SAGAI como sistema de apoyo (no decisor automático). Enfatiza importancia de mantener jueces en loop, lo que SAGAI explícitamente implementa mediante revisión humana obligatoria antes de aprobación.
+\vspace{0.3cm}
+
+\textbf{The Impact of Court Case Management Systems on Judicial Efficiency} \cite{CourtCaseManagement2026} \\
+Esta investigación examina el impacto de los sistemas de gestión de casos judiciales en la eficiencia de los tribunales. Los resultados indican que estas plataformas facilitan la administración documental, el intercambio de información y la digitalización de procesos, constituyendo una base tecnológica importante para la incorporación de soluciones de inteligencia artificial en el ámbito judicial.
+
+Este antecedente valida que sistemas informáticos integrados en juzgados pueden mejorar eficiencia. SAGAI se diseña como componente dentro de ecosistema CCMS más amplio del PJETAM.
+\vspace{0.3cm}
+
+\textbf{Unveiling AI in the Courtroom: Exploring ChatGPT's Impact on Judicial Decision-Making through a Pilot Colombian Case Study} \cite{UnveilingAI2024} \\
+Este estudio documenta uno de los primeros casos conocidos en los que un juez utilizó ChatGPT como apoyo dentro de un proceso judicial. Los autores analizan las implicaciones éticas, jurídicas y operativas de la incorporación de modelos de lenguaje en la práctica judicial, destacando la importancia de la transparencia, la responsabilidad y la supervisión humana.
+
+Este caso piloto en Colombia (contexto latinoamericano similar a Tamaulipas) demuestra aceptación judicial de asistencia basada en IA. Aunque controvertido, muestra que jueces están dispuestos a utilizar LLMs, validando potencial de SAGAI.
+\vspace{0.3cm}
+
+\textbf{ContractEval: Benchmarking LLMs for Clause-Level Legal Risk Identification in Commercial Contracts} \cite{ContractEval2025} \\
+Este trabajo presenta ContractEval, un benchmark diseñado para evaluar el desempeño de modelos de lenguaje en tareas de análisis de contratos. La investigación compara modelos propietarios y de código abierto, destacando aspectos relacionados con precisión, identificación de riesgos legales y protección de información confidencial en entornos jurídicos.
+
+Aunque ContractEval se enfoca en contratos comerciales, su metodología de evaluación de LLMs para tareas legales específicas es directamente aplicable. SAGAI podría adoptar framework similar para evaluar calidad de acuerdos generados.
+\vspace{0.5cm}
 
 Con la finalidad de situar la pertinencia técnica del proyecto y justificar la arquitectura seleccionada, a continuación se presenta en la Tabla \ref{tab:comparativa_estado_practica} un análisis comparativo de las diferentes alternativas tecnológicas evaluadas para la resolución del problema.
 
@@ -104,9 +125,10 @@ Con la finalidad de situar la pertinencia técnica del proyecto y justificar la 
         \hline
         
     \end{tabular}
+    \caption*{\footnotesize Nota: Comparación de alternativas tecnológicas evaluadas para apoyar la generación de acuerdos judiciales en el PJETAM.}
 \end{table}
 
-La Tabla \ref{tab:comparativa_estado_practica} presenta una comparación general entre las principales alternativas tecnológicas identificadas para apoyar la elaboración de acuerdos judiciales. El procesamiento manual conserva altos niveles de privacidad, pero presenta limitaciones en escalabilidad y eficiencia operativa. Por su parte, los sistemas basados en plantillas ofrecen cierta automatización, aunque poseen baja capacidad de adaptación ante cambios normativos. Los modelos de lenguaje operados completamente en la nube proporcionan altos niveles de procesamiento semántico, pero generan preocupaciones relacionadas con la confidencialidad de la información judicial. Finalmente, el enfoque híbrido implementado en SAGAI combina capacidades de reconocimiento óptico de caracteres y generación asistida mediante inteligencia artificial, manteniendo un equilibrio entre privacidad, precisión, adaptabilidad y viabilidad institucional, razón por la cual fue seleccionado como la alternativa más adecuada para el proyecto.
+A partir de la comparación realizada, la alternativa más viable para el proyecto es el desarrollo de un enfoque híbrido que integre Reconocimiento Óptico de Caracteres (OCR) junto con la inferencia de un Modelo de Lenguaje Grande. Esta opción permite extraer el texto de las promociones físicas sin comprometer la privacidad de los expedientes judiciales en servidores no autorizados, superando la rigidez operativa de las plantillas estáticas y garantizando un alto grado de adaptabilidad a la legislación del Estado de Tamaulipas.
 
 \subsection{Planteamiento del Problema}
 \label{sec:problema}
@@ -180,8 +202,25 @@ Las limitantes que restringen el despliegue del software corresponden a:
 Para dar sustento a la investigación y desarrollo del sistema SAGAI, el marco teórico de este proyecto abordará los siguientes ejes temáticos:
 
 \begin{itemize}
-    \item \textbf{LegalTech y la Transformación Digital Judicial:} Evolución de los sistemas de información en el sector público y el concepto de Expediente Electrónico.
-    \item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Fundamentos teóricos del procesamiento digital de imágenes, extracción de texto y la arquitectura del motor de código abierto Tesseract OCR.
-    \item \textbf{Inteligencia Artificial Generativa y LLMs:} Conceptos básicos de los Modelos de Lenguaje Grande, su capacidad de razonamiento lógico-semántico y procesamiento de lenguaje natural (NLP).
-    \item \textbf{Arquitectura Web Cliente-Servidor:} Separación de responsabilidades entre el Frontend (interfaces de usuario interactivas) y el Backend (desarrollo de APIs RESTful utilizando FastAPI).
+\item \textbf{LegalTech y la Transformación Digital Judicial:} Evolución de los sistemas de información en el sector público, digitalización de procesos judiciales y el concepto de Expediente Electrónico.
+
+\item \textbf{Procesamiento Digital de Documentos Jurídicos:} Métodos y tecnologías utilizadas para la digitalización, almacenamiento y gestión de documentos dentro de entornos judiciales electrónicos.
+
+\item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Fundamentos teóricos del procesamiento digital de imágenes, extracción de texto y la arquitectura del motor de código abierto Tesseract OCR.
+
+\item \textbf{Procesamiento de Lenguaje Natural (NLP) en Textos Legales:} Técnicas para el análisis, comprensión y extracción de información relevante a partir de documentos jurídicos.
+
+\item \textbf{Arquitectura Transformer:} Principios de funcionamiento de los modelos Transformer, mecanismos de atención y su papel en las tareas modernas de procesamiento de lenguaje natural.
+
+\item \textbf{Modelos de Lenguaje Grande (LLMs):} Conceptos fundamentales, capacidades, limitaciones y aplicaciones de los Large Language Models en la generación y análisis de texto.
+
+\item \textbf{Inteligencia Artificial Generativa para Documentos Legales:} Uso de modelos generativos para la automatización documental, asistencia jurídica y generación de borradores de acuerdos.
+
+\item \textbf{Generación Aumentada por Recuperación (RAG):} Integración de modelos de lenguaje con bases de conocimiento y normatividad jurídica para mejorar la precisión y contextualización de las respuestas generadas.
+
+\item \textbf{Inteligencia Artificial Explicable (XAI) y Ética en Sistemas Jurídicos:} Principios de transparencia, interpretabilidad, trazabilidad y supervisión humana en aplicaciones de inteligencia artificial utilizadas en contextos judiciales.
+
+\item \textbf{Arquitectura Web Cliente-Servidor:} Separación de responsabilidades entre el Frontend (interfaces de usuario interactivas) y el Backend (desarrollo de APIs RESTful utilizando FastAPI).
+```
+
 \end{itemize}
