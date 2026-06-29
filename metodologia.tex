@@ -1,51 +1,101 @@
 \section{Metodología}
+\label{ch:metodologia}
 
-Los métodos y herramientas utilizadas son la descripción detallada de las etapas
-(o pasos, procedimiento) de desarrollo en que se dividió el proyecto y están
-íntimamente relacionadas con los objetivos operativos. Se compara con una
-receta de cocina, es decir, describir a detalle las actividades y acciones realizadas
-en cada etapa de desarrollo, empleando un orden cronológico y en función de los
-objetivos operativos. Sus características son:
+\subsection{Propuesta de solución}
+\label{subsec:propuesta_solucion}
+
+\subsubsection{Análisis del Contexto y Problemática}
+\label{subsubsec:analisis_problematica}
+
+El diseño de cualquier sistema informático requiere una comprensión profunda de las deficiencias operativas actuales. En los juzgados del Poder Judicial del Estado de Tamaulipas (PJETAM), el cuello de botella logístico se origina en la transcripción, análisis y redacción manual de los acuerdos judiciales. 
+
+Históricamente, los tribunales mexicanos han dependido del papel. Aunque en la actualidad existe la digitalización de expedientes, los documentos suelen almacenarse como imágenes estáticas carentes de indexación semántica. El personal jurídico se ve obligado a realizar una lectura visual de cada promoción, localizar mentalmente los artículos aplicables en los Códigos de Procedimientos y redactar los borradores desde cero. Esta carga cognitiva excesiva y la dependencia de la transcripción manual no solo ralentizan el flujo de la justicia, sino que incrementan el riesgo de errores humanos por fatiga visual y elevan los niveles de estrés laboral del personal. El modelo operativo actual es insostenible ante el aumento constante de demandas diarias.
+
+\subsubsection*{Formulación de la Solución}
+
+Para resolver esta crisis logística, se propone el desarrollo del \textbf{Sistema de Apoyo a la Generación de Acuerdos Judiciales mediante Inteligencia Artificial Generativa (SAGAI)}. Esta plataforma web interactiva está diseñada para transformar el flujo de trabajo manual en un proceso asistido, seguro y eficiente.
+
+El sistema funciona como un intermediario inteligente entre el documento digitalizado y la redacción final del servidor público, mitigando las tareas de bajo nivel cognitivo (mecanografía) para que el funcionario concentre su experiencia en la validación jurídica.
+
+\subsubsection{Especificación de Requerimientos del Sistema}
+\label{subsubsec:requerimientos}
+
+Para garantizar el éxito de SAGAI, se han definido los siguientes requerimientos estructurales:
+
+\textbf{Requerimientos Funcionales:}
 \begin{itemize}
-\item Descripción detallada de las etapas (o pasos) desarrolladas, las cuales están
-relacionadas con cada objetivo operativos. Dependiendo del número de
-objetivos, será el número de etapas de desarrollo reportadas.
-\item En cada etapa de desarrollo, describir las herramientas académicas, técnicas
-y computacionales que se utilizaron, indicando roles y responsabilidades.
-Además, describir las asignaturas o aprendizajes que se obtuvieron durante tu
-formación académica y fueron útiles en el proceso. Así mismo, describir
-herramientas, equipos, tecnologías, etc., que se utilizaron durante el proyecto o
-se aprendieron en la unidad económica.
+    \item El sistema debe permitir la carga de archivos en formatos estándar de digitalización (PDF, JPG, PNG).
+    \item El sistema debe extraer automáticamente el texto de los documentos cargados mediante reconocimiento óptico.
+    \item El sistema debe comunicarse con un Modelo de Lenguaje Grande para enviar el texto extraído y recibir una propuesta de acuerdo fundamentada.
+    \item El sistema debe proveer un editor de texto interactivo para que el usuario modifique, apruebe y formatee el documento final.
 \end{itemize}
 
-\textit{El informe debe estar soportado por referencias, ademas incluir figuras y tablas. En los siguientes parrafos se ejemplifica como usar dichos elementos. }
+\textbf{Requerimientos No Funcionales:}
+\begin{itemize}
+    \item \textbf{Seguridad:} Los documentos procesados no deben almacenarse de forma permanente en servidores externos no autorizados.
+    \item \textbf{Disponibilidad:} La plataforma web debe ser accesible desde la red interna del PJETAM.
+    \item \textbf{Rendimiento:} El tiempo de procesamiento entre la carga del documento y la generación del borrador debe ser inferior al tiempo promedio de redacción manual.
+\end{itemize}
 
-De acuerdo con Ivan \cite{Sistema:2018:Ivan}, todos mienten, de la misma forma que Dr. House lo afirma de manera continua a lo largo de las 8 temporadas de la serie. 
+\subsubsection*{Arquitectura Tecnológica y Pila de Desarrollo}
 
-Los sistemas de información constituyen un conjunto organizado de recursos —personas, datos, procesos y tecnología— que interactúan para recolectar, procesar, almacenar y distribuir información relevante dentro de una organización. Su propósito principal es apoyar la toma de decisiones, la coordinación y el control, así como facilitar el análisis y la visualización de información estratégica \cite{laudon2020, stair2018}. En el contexto actual, caracterizado por la digitalización y la globalización, los sistemas de información han evolucionado hacia plataformas integradas que permiten la gestión eficiente del conocimiento y la automatización de procesos empresariales \cite{turban2019}. Además, el uso de tecnologías emergentes como la inteligencia artificial y el análisis de datos ha ampliado sus capacidades, permitiendo generar valor a partir de grandes volúmenes de información \cite{davenport2018}.
+La plataforma SAGAI se fundamenta en una arquitectura desacoplada y escalable, seleccionando tecnologías robustas para cada capa del sistema:
 
-Por otra parte, la implementación de sistemas de información implica retos importantes relacionados con la alineación estratégica, la seguridad de la información y la gestión del cambio organizacional. Es fundamental que estos sistemas estén alineados con los objetivos del negocio para maximizar su impacto y retorno de inversión \cite{ward2016}. Asimismo, la protección de datos y la ciberseguridad se han convertido en aspectos críticos debido al incremento de amenazas digitales \cite{whitman2018}. Finalmente, el éxito de un sistema de información depende en gran medida de la aceptación por parte de los usuarios y de una adecuada gestión del cambio, lo que requiere capacitación, comunicación efectiva y liderazgo organizacional \cite{heeks2006}.
+\textbf{Desarrollo Frontend:}\\
+Para la interacción con el usuario, el desarrollo Frontend se centra en la construcción de interfaces dinámicas e interactivas utilizando JavaScript. Se prioriza la manipulación eficiente del Modelo de Objetos del Documento (DOM), el consumo asíncrono de APIs y el manejo del estado de la aplicación para el editor de texto enriquecido. Esto permite un renderizado rápido de los borradores y mantiene una separación estricta y limpia de la lógica de presentación en el navegador.
 
+\textbf{Desarrollo Backend y Visión Computacional:}\\
+El núcleo del servidor (\textit{Backend}) será programado en Python, utilizando el marco de trabajo \textit{FastAPI} para asegurar un procesamiento concurrente y de alto rendimiento. En esta capa reside el módulo de Visión Computacional, impulsado por \textit{Tesseract OCR}, responsable de ejecutar la extracción de texto local antes de cualquier transmisión de datos.
 
-En la figura \ref{fig:my_label}, se muestra una pantalla de una aplicación para contar las calorías de la comida mexicana. (Si la figura se mueve a la siguiente página, es NORMAL, no muevan nada!).
-\begin{figure}[!tbh]
+\textbf{Gestión de Datos y Entorno de Despliegue:}\\
+Los metadatos estructurales y el registro de auditoría de los acuerdos generados serán gestionados mediante un sistema de bases de datos relacional utilizando MySQL. Todo el ecosistema será desplegado sobre un entorno de servidor basado en Linux, específicamente sobre una distribución Debian, lo que garantiza un control administrativo total sobre la personalización del sistema, seguridad a nivel de puertos y una alta estabilidad para ejecutar el motor OCR en producción.
+
+\textbf{Capa Cognitiva (Inteligencia Artificial):}\\
+El análisis semántico asistido se delegará a la API de Inteligencia Artificial de Anthropic Claude. Esta capa está configurada bajo la arquitectura de Generación Aumentada por Recuperación (RAG) para anclar y restringir sus sugerencias estrictamente a los Códigos Procesales del Estado de Tamaulipas.
+
+\subsubsection*{Evaluación de Alternativas y Viabilidad}
+
+Durante la fase de diseño, se descartaron enfoques tradicionales por sus limitantes técnicas. La automatización mediante plantillas estáticas fue rechazada por su rigidez, ya que requiere reprogramación ante cualquier reforma de ley o formato inusual de promoción. Asimismo, delegar el procesamiento a servicios comerciales 100\% en la nube sin un filtro previo representaba un riesgo para la privacidad de los expedientes.
+
+Por ello, SAGAI emplea un enfoque híbrido: limpieza local complementada con inferencia de lenguaje en la nube con contexto controlado. Desde la perspectiva de viabilidad institucional, el proyecto resulta altamente rentable. La pila tecnológica base (JavaScript, Python, MySQL, Debian) es de código abierto. Por su parte, la infraestructura cognitiva (API de Anthropic Claude) será gestionada y financiada en su totalidad por el PJETAM a través de las gestiones del asesor empresarial, garantizando que el tribunal asuma únicamente el costo por uso real, eliminando la dependencia de licencias de software prohibitivas.
+
+\subsubsection{Plan de Ejecución y Cronograma Operativo}
+\label{subsubsec:plan_ejecucion}
+
+La construcción de la plataforma se ejecutará bajo una metodología de desarrollo modular e incremental. Este enfoque aísla la complejidad del sistema; es decir, permite desarrollar y probar de forma independiente el motor de extracción OCR, el generador de IA y el \textit{Frontend}. 
+
+El desarrollo está planificado para completarse en 14 semanas. A continuación, se describen las fases operativas:
+
+\begin{itemize}
+    \item \textbf{Fase 1: Requerimientos y Entorno.} Involucra el levantamiento de procesos con el personal, el diseño de la arquitectura y la configuración del servidor Debian y la base de datos MySQL.
+    \item \textbf{Fase 2: Motor OCR.} Centrada en la implementación de la visión computacional y la calibración algorítmica de Tesseract para los formatos de los juzgados.
+    \item \textbf{Fase 3: Capa Cognitiva.} Se integra la API de Anthropic Claude y se construye el sistema RAG utilizando los códigos procesales.
+    \item \textbf{Fase 4: Desarrollo Frontend.} Programación de las interfaces web y consumo de las APIs del Backend para consolidar la interacción del usuario.
+    \item \textbf{Fase 5: Integración y Pruebas.} Ejecución de pruebas de carga, validación del modelo \textit{Human-in-the-loop} y ajustes de seguridad.
+    \item \textbf{Fase 6: Cierre.} Compilación de manuales técnicos y entrega formal del proyecto.
+\end{itemize}
+
+Para la visualización temporal de estas fases, se presenta el siguiente cronograma condensado:
+
+\begin{table}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/calorias1.png}
-    \caption{Aplicacion ``Mexican Food with Chilly'' \cite{Microsoft:Concepto}}
-    \label{fig:my_label}
-\end{figure}
-
-En la tabla \ref{tab:my_label}, se muestra una tabla con el listado de los mejores futbolistas del mundo mundial. 
-
-\begin{table}[!tbh]
-    \centering
-    \begin{tabular}{c|c} \hline
-         Estudiante &  Nacionalidad \\ \hline
-         Lionel Messi & Argentina  \\
-         Cristiano Ronaldo & Portuguesa  \\
-         Hector Hermoso Herrera & Mexicana \\ 
-         \hline \hline
+    \caption{Cronograma condensado de implementación de SAGAI.}
+    \label{tab:cronograma_sagai}
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Periodo} & \textbf{Semanas} & \textbf{Fase de Desarrollo} \\
+        \hline
+        Mayo & Semanas 1 - 2 & Fase 1: Requerimientos y Entorno Backend \\
+        \hline
+        Mayo - Junio & Semanas 3 - 5 & Fase 2: Motor de Extracción Local (OCR) \\
+        \hline
+        Junio & Semanas 6 - 8 & Fase 3: Capa Cognitiva e Integración IA (Claude) \\
+        \hline
+        Junio - Julio & Semanas 9 - 10 & Fase 4: Desarrollo Frontend e Interfaces \\
+        \hline
+        Julio & Semanas 11 - 13 & Fase 5: Pruebas de Integración y Validación \\
+        \hline
+        Agosto & Semana 14 & Fase 6: Documentación Técnica y Cierre \\
+        \hline
     \end{tabular}
-    \caption{Otro ejemplo de tabla}
-    \label{tab:my_label}
 \end{table}
