@@ -64,10 +64,11 @@ Este caso piloto en Colombia (contexto latinoamericano similar a Tamaulipas) dem
 Este trabajo presenta ContractEval, un benchmark diseñado para evaluar el desempeño de modelos de lenguaje en tareas de análisis de contratos. La investigación compara modelos propietarios y de código abierto, destacando aspectos relacionados con precisión, identificación de riesgos legales y protección de información confidencial en entornos jurídicos.
 
 Aunque ContractEval se enfoca en contratos comerciales, su metodología de evaluación de LLMs para tareas legales específicas es directamente aplicable. SAGAI podría adoptar framework similar para evaluar calidad de acuerdos generados.
-\vspace{0.5cm}
+
+\subsubsection{Tabla comparativa}
+\label{subsec:tabla_comparativa}
 
 Con la finalidad de situar la pertinencia técnica del proyecto y justificar la arquitectura seleccionada, a continuación se presenta en la Tabla \ref{tab:comparativa_estado_practica} un análisis comparativo de las diferentes alternativas tecnológicas evaluadas para la resolución del problema.
-
 \begin{table}[H]
     \centering
     \caption{Comparación de alternativas tecnológicas para la generación de acuerdos judiciales.}
@@ -194,33 +195,4 @@ Las limitantes que restringen el despliegue del software corresponden a:
     \item El índice de precisión del reconocimiento de texto está condicionado a factores físicos del documento fuente, tales como la resolución del escáner, presencia de enmendaduras, sellos institucionales sobre el texto o dobleces en las hojas.
     \item El sistema bajo ninguna circunstancia reemplaza las facultades de decisión jurídica del servidor público; opera exclusivamente como un asistente técnico de generación de propuestas que carecen de validez legal por sí mismas.
     \item El modelo no interpretará jurisprudencias federales complejas, interpretaciones de la Suprema Corte, ni normativas ajenas a la base de conocimiento estructurada para el estado de Tamaulipas en esta fase de desarrollo.
-\end{itemize}
-
-\subsection{Temas Tentativos para el Marco Teórico}
-\label{sec:temas_tentativos}
-
-Para dar sustento a la investigación y desarrollo del sistema SAGAI, el marco teórico de este proyecto abordará los siguientes ejes temáticos:
-
-\begin{itemize}
-\item \textbf{LegalTech y la Transformación Digital Judicial:} Evolución de los sistemas de información en el sector público, digitalización de procesos judiciales y el concepto de Expediente Electrónico.
-
-\item \textbf{Procesamiento Digital de Documentos Jurídicos:} Métodos y tecnologías utilizadas para la digitalización, almacenamiento y gestión de documentos dentro de entornos judiciales electrónicos.
-
-\item \textbf{Reconocimiento Óptico de Caracteres (OCR):} Fundamentos teóricos del procesamiento digital de imágenes, extracción de texto y la arquitectura del motor de código abierto Tesseract OCR.
-
-\item \textbf{Procesamiento de Lenguaje Natural (NLP) en Textos Legales:} Técnicas para el análisis, comprensión y extracción de información relevante a partir de documentos jurídicos.
-
-\item \textbf{Arquitectura Transformer:} Principios de funcionamiento de los modelos Transformer, mecanismos de atención y su papel en las tareas modernas de procesamiento de lenguaje natural.
-
-\item \textbf{Modelos de Lenguaje Grande (LLMs):} Conceptos fundamentales, capacidades, limitaciones y aplicaciones de los Large Language Models en la generación y análisis de texto.
-
-\item \textbf{Inteligencia Artificial Generativa para Documentos Legales:} Uso de modelos generativos para la automatización documental, asistencia jurídica y generación de borradores de acuerdos.
-
-\item \textbf{Generación Aumentada por Recuperación (RAG):} Integración de modelos de lenguaje con bases de conocimiento y normatividad jurídica para mejorar la precisión y contextualización de las respuestas generadas.
-
-\item \textbf{Inteligencia Artificial Explicable (XAI) y Ética en Sistemas Jurídicos:} Principios de transparencia, interpretabilidad, trazabilidad y supervisión humana en aplicaciones de inteligencia artificial utilizadas en contextos judiciales.
-
-\item \textbf{Arquitectura Web Cliente-Servidor:} Separación de responsabilidades entre el Frontend (interfaces de usuario interactivas) y el Backend (desarrollo de APIs RESTful utilizando FastAPI).
-```
-
 \end{itemize}
