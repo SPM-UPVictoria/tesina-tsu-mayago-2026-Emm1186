@@ -9,7 +9,7 @@ Para el desarrollo del Sistema de Apoyo a la Generación de Acuerdos Judiciales 
 El término \textit{LegalTech} se refiere a la intersección entre la tecnología de la información y la prestación de servicios legales. En el sector público, esto implica la digitalización de expedientes, la automatización de procesos administrativos y la implementación de sistemas de gestión documental inteligente. La modernización tecnológica representa un cambio paradigmático en la administración de justicia, impulsando la adopción de herramientas predictivas y de soporte institucional que facilitan el acceso equitativo a la justicia \cite{Frontiers2025}. 
 
 \subsubsection{Impacto en la eficiencia de los tribunales}
-La integración de tecnologías de la Industria 4.0 en la administración de los tribunales ha demostrado ser fundamental para resolver crisis operativas estructurales \cite{Bhatt2024}. La acumulación de casos (\textit{backlog}) y las ineficiencias en los flujos de trabajo generan retrasos sistémicos. Implementar sistemas de gestión y análisis de datos optimiza las operaciones de servicio, permitiendo una asignación eficiente del tiempo y recursos procesales \cite{Bakshi2024}. Además, los Sistemas de Gestión de Casos Judiciales (CCMS) han comprobado mejorar drásticamente la administración documental y el intercambio de información, sentando la base para ecosistemas digitales eficientes \cite{CourtCaseManagement2026}.
+La integración de tecnologías de la Industria 4.0 en la administración de los tribunales ha demostrado ser fundamental para resolver crisis operativas estructurales. La acumulación de casos (\textit{backlog}) y las ineficiencias en los flujos de trabajo generan retrasos sistémicos. Implementar sistemas de gestión y análisis de datos optimiza las operaciones de servicio, permitiendo una asignación eficiente del tiempo y recursos procesales. Además, los Sistemas de Gestión de Casos Judiciales (CCMS) han comprobado mejorar drásticamente la administración documental y el intercambio de información, sentando la base para ecosistemas digitales eficientes.
 
 \subsection{Procesamiento Digital de Documentos Jurídicos}
 
@@ -25,12 +25,12 @@ En este contexto, investigaciones recientes proponen un enfoque centrado en enti
 El Reconocimiento Óptico de Caracteres (OCR) es una tecnología de visión computacional orientada a la detección y conversión de patrones de pixeles en caracteres alfanuméricos codificados por máquina. Permite transformar diferentes tipos de documentos estáticos, como imágenes escaneadas o archivos PDF fotográficos, en datos de texto editable.
 
 \subsubsection{Arquitectura y Tesseract OCR}
-Los avances recientes en OCR integran modelos de aprendizaje profundo que optimizan el análisis de disposición (\textit{Document Layout Analysis}) y la detección precisa de líneas de texto \cite{Fateh2024}. El uso de motores de OCR de código abierto, como Tesseract, ha sido ampliamente evaluado en el entorno jurídico. Estudios enfocados en documentos legales digitalizados demuestran que la integración del OCR con modelos modernos de visión mejora sustancialmente la extracción de contenido. Esto valida a Tesseract OCR como una herramienta altamente viable y efectiva para la implementación de \textit{pipelines} de digitalización judicial de bajo costo \cite{OCRLegal2025}.
+Los avances recientes en OCR integran modelos de aprendizaje profundo que optimizan el análisis de disposición (\textit{Document Layout Analysis}) y la detección precisa de líneas de texto \cite{Fateh2024}. Un ejemplo visual de este proceso de detección y estructuración se presenta en la Figura \ref{fig:ejemplo_ocr}. El uso de motores de OCR de código abierto, como Tesseract, ha sido ampliamente evaluado en el entorno jurídico. Estudios enfocados en documentos legales digitalizados demuestran que la integración del OCR con modelos modernos de visión mejora sustancialmente la extracción de contenido. Esto valida a Tesseract OCR como una herramienta altamente viable y efectiva para la implementación de \textit{pipelines} de digitalización judicial de bajo costo.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{img/OCR.png} 
-    \caption{Ejemplo del proceso de análisis de disposición y extracción de texto mediante OCR.}
+    \caption{Ejemplo del proceso de análisis de disposición y extracción de texto mediante OCR \cite{Fateh2024}.}
     \label{fig:ejemplo_ocr}
 \end{figure}
 
@@ -56,7 +56,7 @@ La comunidad científica ha validado la viabilidad técnica de los LLMs para eje
 Los modelos de inteligencia artificial generativa han demostrado capacidades transformativas en la redacción de documentos formales. En sistemas jurídicos inteligentes, técnicas como el uso de Grafos de Conocimiento permiten estructurar la normatividad procesal y utilizar relaciones semánticas para generar borradores más completos y coherentes que los sistemas basados en reglas rígidas \cite{KnowledgeGraph2024}. 
 
 \subsubsection{Redacción asistida y mitigación de riesgos legales}
-El uso de IA generativa eleva significativamente la productividad en la elaboración de acuerdos preliminares y la resolución de conflictos \cite{ChienKim2026}. Adicionalmente, el desarrollo de \textit{benchmarks} especializados como ContractEval demuestra la capacidad de los LLMs para identificar riesgos legales a nivel de cláusula, garantizando que el texto generado cumpla con los estándares de precisión requeridos \cite{ContractEval2025}.
+El uso de IA generativa eleva significativamente la productividad en la elaboración de acuerdos preliminares y la resolución de conflictos \cite{ChienKim2026}. Adicionalmente, el desarrollo de \textit{benchmarks} especializados como ContractEval demuestra la capacidad de los LLMs para identificar riesgos legales a nivel de cláusula, garantizando que el texto generado cumpla con los estándares de precisión requeridos.
 
 \subsection{Generación Aumentada por Recuperación (RAG)}
 
@@ -64,7 +64,16 @@ El uso de IA generativa eleva significativamente la productividad en la elaborac
 La Generación Aumentada por Recuperación (RAG, por sus siglas en inglés) es una arquitectura que integra modelos de lenguaje con bases de conocimiento externo y normatividad jurídica. Esta técnica es fundamental para anclar las respuestas del modelo a textos legales reales, mejorando la precisión y evitando la generación de información ficticia, un problema comúnmente conocido como alucinaciones.
 
 \subsubsection{Implementación en la redacción asistida}
-Plataformas aplicadas en el estado del arte, como el sistema JusBuild, demuestran la eficacia de RAG en la generación de documentos legales. Al combinar la recuperación semántica de precedentes similares con las sugerencias generadas por LLMs, el sistema asiste en la redacción de acuerdos. Esto permite que el personal judicial mantenga el control sobre el documento, reduciendo drásticamente las alucinaciones en contextos de jurisprudencia real \cite{JusBuild2025}.
+Estudios recientes en la literatura científica validan que el uso de plataformas RAG en tecnología legal mejora sustancialmente la precisión y reduce las alucinaciones algorítmicas \cite{Hindi2025}. Como se ilustra en la Figura \ref{fig:diagrama_rag}, la investigación y estructuración de estos sistemas abarca múltiples dimensiones esenciales, que van desde innovaciones en los métodos de recuperación hasta consideraciones éticas y de privacidad. 
+
+Al combinar la recuperación semántica de bases de datos externas y normativas con las capacidades generativas de los LLMs, el sistema asiste en la interpretación y redacción de documentos. Esta arquitectura permite que el personal judicial mantenga el control sobre el texto, garantizando respuestas interpretables, confiables y estrictamente apegadas a la jurisdicción real \cite{Hindi2025}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/diagrama_rag.png} 
+    \caption{Estructura y dimensiones clave en la investigación de sistemas RAG aplicados al dominio legal \cite{Hindi2025}.}
+    \label{fig:diagrama_rag}
+\end{figure}
 
 \subsection{Inteligencia Artificial Explicable (XAI) y Ética Judicial}
 
@@ -72,7 +81,7 @@ Plataformas aplicadas en el estado del arte, como el sistema JusBuild, demuestra
 La adopción de sistemas de IA en la impartición de justicia exige evitar el efecto de "caja negra". La Inteligencia Artificial Explicable (XAI) identifica la necesidad de proporcionar respuestas transparentes y sensibles al contexto legal, previniendo sesgos algorítmicos y asegurando que las sugerencias del sistema estén debidamente fundamentadas en la ley \cite{ICIT2024}.
 
 \subsubsection{Percepción pública y el enfoque Human-in-the-Loop}
-Estudios sobre la percepción ciudadana destacan que el uso de IA en tribunales es aceptado únicamente si se mantiene la supervisión humana, protegiendo la equidad procesal \cite{PublicPerceptionsAI2025}. La implementación exitosa de casos piloto, como el uso de asistentes virtuales por jueces en Colombia, valida la utilidad de la IA, pero subraya la responsabilidad indelegable del servidor público \cite{UnveilingAI2024}. Por ello, SAGAI se diseña como una herramienta de apoyo (\textit{Human-in-the-Loop}), cuyo propósito es aliviar el estrés judicial crónico (\textit{burnout}) causado por el trabajo manual intensivo \cite{Fine2024}, sin sustituir la toma de decisiones.
+Estudios sobre la percepción ciudadana destacan que el uso de IA en tribunales es aceptado únicamente si se mantiene la supervisión humana, protegiendo la equidad procesal. La implementación exitosa de casos piloto, como el uso de asistentes virtuales por jueces en Colombia, valida la utilidad de la IA, pero subraya la responsabilidad indelegable del servidor público. Por ello, SAGAI se diseña como una herramienta de apoyo (\textit{Human-in-the-Loop}), cuyo propósito es aliviar el estrés judicial crónico (\textit{burnout}) causado por el trabajo manual intensivo, sin sustituir la toma de decisiones.
 
 \subsection{Arquitectura Web Cliente-Servidor}
 
