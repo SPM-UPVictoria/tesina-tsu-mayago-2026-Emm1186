@@ -53,7 +53,16 @@ La comunidad científica ha validado la viabilidad técnica de los LLMs para eje
 \subsection{Inteligencia Artificial Generativa para Documentos Legales}
 
 \subsubsection{Generación de documentos y estructuración normativa}
-Los modelos de inteligencia artificial generativa han demostrado capacidades transformativas en la redacción de documentos formales. En sistemas jurídicos inteligentes, técnicas como el uso de Grafos de Conocimiento permiten estructurar la normatividad procesal y utilizar relaciones semánticas para generar borradores más completos y coherentes que los sistemas basados en reglas rígidas \cite{KnowledgeGraph2024}. 
+Los modelos de inteligencia artificial generativa han demostrado capacidades transformativas en la redacción de documentos formales. \cite{KnowledgeGraph2024} En sistemas jurídicos inteligentes, técnicas como el uso de Grafos de Conocimiento permiten estructurar la normatividad procesal y utilizar relaciones semánticas para generar borradores más completos y coherentes que los sistemas basados en reglas rígidas. 
+
+Como se detalla en la Figura \ref{fig:AguaDeCoco}, este proceso consta de tres fases interconectadas: la construcción estructural del grafo a partir de los atributos del caso, la extracción de entidades y relaciones mediante procesamiento de lenguaje natural, y la generación inteligente apoyada en técnicas de aprendizaje automático.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.50\textwidth]{img/ReiAyanami.png} 
+    \caption{Arquitectura general de un sistema inteligente de generación de documentos legales basado en Grafos de Conocimiento \cite{KnowledgeGraph2024}.}
+    \label{fig:AguaDeCoco}
+\end{figure}
 
 \subsubsection{Redacción asistida y mitigación de riesgos legales}
 El uso de IA generativa eleva significativamente la productividad en la elaboración de acuerdos preliminares y la resolución de conflictos \cite{ChienKim2026}. Adicionalmente, el desarrollo de \textit{benchmarks} especializados como ContractEval demuestra la capacidad de los LLMs para identificar riesgos legales a nivel de cláusula, garantizando que el texto generado cumpla con los estándares de precisión requeridos.
@@ -66,11 +75,11 @@ La Generación Aumentada por Recuperación (RAG, por sus siglas en inglés) es u
 \subsubsection{Implementación en la redacción asistida}
 Estudios recientes en la literatura científica validan que el uso de plataformas RAG en tecnología legal mejora sustancialmente la precisión y reduce las alucinaciones algorítmicas \cite{Hindi2025}. Como se ilustra en la Figura \ref{fig:diagrama_rag}, la investigación y estructuración de estos sistemas abarca múltiples dimensiones esenciales, que van desde innovaciones en los métodos de recuperación hasta consideraciones éticas y de privacidad. 
 
-Al combinar la recuperación semántica de bases de datos externas y normativas con las capacidades generativas de los LLMs, el sistema asiste en la interpretación y redacción de documentos. Esta arquitectura permite que el personal judicial mantenga el control sobre el texto, garantizando respuestas interpretables, confiables y estrictamente apegadas a la jurisdicción real \cite{Hindi2025}.
+Al combinar la recuperación semántica de bases de datos externas y normativas con las capacidades generativas de los LLMs, el sistema asiste en la interpretación y redacción de documentos. Esta arquitectura permite que el personal judicial mantenga el control sobre el texto, garantizando respuestas interpretables, confiables y estrictamente apegadas a la jurisdicción real.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{img/diagrama_rag.png} 
+    \includegraphics[width=0.95\textwidth]{img/diagrama_rag.png} 
     \caption{Estructura y dimensiones clave en la investigación de sistemas RAG aplicados al dominio legal \cite{Hindi2025}.}
     \label{fig:diagrama_rag}
 \end{figure}
@@ -78,7 +87,14 @@ Al combinar la recuperación semántica de bases de datos externas y normativas 
 \subsection{Inteligencia Artificial Explicable (XAI) y Ética Judicial}
 
 \subsubsection{Transparencia y explicabilidad algorítmica}
-La adopción de sistemas de IA en la impartición de justicia exige evitar el efecto de "caja negra". La Inteligencia Artificial Explicable (XAI) identifica la necesidad de proporcionar respuestas transparentes y sensibles al contexto legal, previniendo sesgos algorítmicos y asegurando que las sugerencias del sistema estén debidamente fundamentadas en la ley \cite{ICIT2024}.
+La adopción de sistemas de IA en la impartición de justicia exige evitar el efecto de "caja negra". La Inteligencia Artificial Explicable (XAI) identifica la necesidad de proporcionar respuestas transparentes y sensibles al contexto legal. Como se observa en la Figura \ref{fig:diagrama_xai}, transitar de un modelo de IA tradicional a un enfoque explicable (ya sea mediante arquitecturas interpretables o análisis \textit{post-hoc}) permite al usuario final comprender las variables que originaron el resultado. En el ámbito jurídico, esto es un requisito ineludible para prevenir sesgos algorítmicos y asegurar que las sugerencias del sistema estén debidamente fundamentadas en la ley \cite{ICIT2024}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{img/diagrama_xai.png} 
+    \caption{Comparativa del flujo de procesamiento entre modelos de IA tradicionales y el enfoque de Inteligencia Artificial Explicable orientado al usuario final \cite{ICIT2024}.}
+    \label{fig:diagrama_xai}
+\end{figure}
 
 \subsubsection{Percepción pública y el enfoque Human-in-the-Loop}
 Estudios sobre la percepción ciudadana destacan que el uso de IA en tribunales es aceptado únicamente si se mantiene la supervisión humana, protegiendo la equidad procesal. La implementación exitosa de casos piloto, como el uso de asistentes virtuales por jueces en Colombia, valida la utilidad de la IA, pero subraya la responsabilidad indelegable del servidor público. Por ello, SAGAI se diseña como una herramienta de apoyo (\textit{Human-in-the-Loop}), cuyo propósito es aliviar el estrés judicial crónico (\textit{burnout}) causado por el trabajo manual intensivo, sin sustituir la toma de decisiones.
@@ -86,7 +102,14 @@ Estudios sobre la percepción ciudadana destacan que el uso de IA en tribunales 
 \subsection{Arquitectura Web Cliente-Servidor}
 
 \subsubsection{Principios del modelo y flujo de interacción}
-La arquitectura Cliente-Servidor constituye el paradigma fundamental para el desarrollo de la plataforma web. Esta arquitectura facilita la separación de responsabilidades, desacoplando la interfaz de usuario que se ejecuta en los navegadores (\textit{Frontend}) de la lógica de procesamiento masivo y bases de datos centralizadas en los servidores (\textit{Backend}) \cite{Nyabuto2024}. 
+La arquitectura Cliente-Servidor constituye el paradigma fundamental para el desarrollo de la plataforma web. \cite{Nyabuto2024} Como se esquematiza en la Figura \ref{fig:diagrama_cliente_servidor}, esta arquitectura facilita la separación de responsabilidades, permitiendo que múltiples clientes interactúen de forma concurrente con un servidor central. Este modelo desacopla la interfaz de usuario que se ejecuta en los navegadores (\textit{Frontend}) de la lógica de procesamiento masivo, la aplicación y las bases de datos centralizadas en los servidores (\textit{Backend}).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{img/Cliente.jpeg} 
+    \caption{Esquema básico del flujo de interacción y centralización de datos en la arquitectura Cliente-Servidor \cite{Nyabuto2024}.}
+    \label{fig:diagrama_cliente_servidor}
+\end{figure}
 
 \subsubsection{Justificación de la arquitectura y uso de FastAPI}
 Para SAGAI, este modelo permite un rendimiento optimizado al distribuir la carga computacional. El Cliente interactúa recibiendo el documento digitalizado, mientras el Servidor, apoyado en marcos de trabajo de alto rendimiento para el desarrollo de APIs RESTful como FastAPI, orquesta el proceso intensivo del OCR local y gestiona las peticiones seguras hacia el modelo de lenguaje, retornando al usuario una interfaz rápida, escalable e intuitiva.
